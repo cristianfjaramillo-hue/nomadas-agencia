@@ -83,11 +83,11 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#0F0F11] text-zinc-100 selection:bg-[#E25822] selection:text-white">
-      {/* ----------------- NAVBAR ----------------- */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0F0F11]/85 border-b border-zinc-800/80">
+      {/* ----------------- NAVBAR (Gris Claro) ----------------- */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#EFEFF2]/95 border-b border-zinc-300/80 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-md border border-white/90 flex items-center justify-center">
+            <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-zinc-200 flex items-center justify-center">
               <div className="relative h-9 w-44 sm:w-52">
                 <Image
                   src="/branding/logo.png"
@@ -100,7 +100,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-zinc-700">
             <a href="#servicios" className="hover:text-[#E25822] transition-colors">Servicios</a>
             <a href="#diferencia" className="hover:text-[#E25822] transition-colors">El Método</a>
             <a href="#cotizador" className="hover:text-[#E25822] transition-colors">Cotizador</a>
@@ -113,7 +113,7 @@ export default function HomePage() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#E25822] hover:bg-[#C94614] text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 orange-glow shadow-lg hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#E25822] hover:bg-[#C94614] text-white font-bold text-sm px-5 py-2.5 rounded-full transition-all duration-300 orange-glow shadow-md hover:scale-105"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Cotizar por WhatsApp</span>
@@ -122,7 +122,7 @@ export default function HomePage() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-zinc-400 hover:text-white"
+            className="md:hidden p-2 text-zinc-700 hover:text-zinc-950"
             aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -131,39 +131,39 @@ export default function HomePage() {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#17171C] border-b border-zinc-800 px-4 pt-3 pb-6 space-y-3">
+          <div className="md:hidden bg-[#EFEFF2] border-b border-zinc-300 px-4 pt-3 pb-6 space-y-3 shadow-lg">
             <a
               href="#servicios"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-[#E25822] py-2 text-base font-medium"
+              className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
             >
               Servicios
             </a>
             <a
               href="#diferencia"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-[#E25822] py-2 text-base font-medium"
+              className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
             >
               El Método
             </a>
             <a
               href="#cotizador"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-[#E25822] py-2 text-base font-medium"
+              className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
             >
               Cotizador
             </a>
             <a
               href="#ubicacion"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-[#E25822] py-2 text-base font-medium"
+              className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
             >
               Ubicación
             </a>
             <a
               href="#faq"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-zinc-300 hover:text-[#E25822] py-2 text-base font-medium"
+              className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
             >
               FAQ
             </a>
@@ -171,7 +171,7 @@ export default function HomePage() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-[#E25822] text-white font-semibold py-3 rounded-xl mt-4"
+              className="flex items-center justify-center gap-2 w-full bg-[#E25822] text-white font-bold py-3 rounded-xl mt-4 shadow-md"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Cotizar por WhatsApp</span>
@@ -689,12 +689,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ----------------- FOOTER ----------------- */}
-      <footer className="border-t border-zinc-800 bg-[#0A0A0C] py-14">
+      {/* ----------------- FOOTER (Gris Claro) ----------------- */}
+      <footer className="border-t border-zinc-300/80 bg-[#EFEFF2] py-14 text-zinc-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div>
-              <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-md inline-flex items-center justify-center mb-3 border border-white/90">
+              <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm inline-flex items-center justify-center mb-3 border border-zinc-200">
                 <div className="relative h-9 w-44">
                   <Image
                     src="/branding/logo.png"
@@ -704,24 +704,24 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-              <p className="text-xs text-zinc-400 max-w-sm">
+              <p className="text-xs text-zinc-600 max-w-sm font-medium leading-relaxed">
                 NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL.  
                 Estrategias • Creatividad • Resultados.  
                 Av. Alberto Zambrano esquina, diagonal a Coop. OSCUS — Puyo, Pastaza.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-6 text-sm text-zinc-400">
-              <a href="#servicios" className="hover:text-white transition-colors">Servicios</a>
-              <a href="#cotizador" className="hover:text-white transition-colors">Cotizador</a>
-              <a href="#ubicacion" className="hover:text-white transition-colors">Ubicación</a>
-              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="text-[#FF7038] hover:underline font-medium">
+            <div className="flex flex-col sm:flex-row items-center gap-6 text-sm font-semibold text-zinc-700">
+              <a href="#servicios" className="hover:text-[#E25822] transition-colors">Servicios</a>
+              <a href="#cotizador" className="hover:text-[#E25822] transition-colors">Cotizador</a>
+              <a href="#ubicacion" className="hover:text-[#E25822] transition-colors">Ubicación</a>
+              <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="text-[#E25822] hover:underline font-bold">
                 WhatsApp Directo
               </a>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+          <div className="mt-12 pt-8 border-t border-zinc-300 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 font-medium gap-4">
             <p>© {new Date().getFullYear()} Nómadas Agencia de Diseño y Marketing Digital. Todos los derechos reservados.</p>
             <p>Hecho con ❤️ y tecnología de alta velocidad en Ecuador.</p>
           </div>
