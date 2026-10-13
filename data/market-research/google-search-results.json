@@ -1,0 +1,600 @@
+[
+  {
+    "#debug": {
+      "requestId": "FZXaSW7u1ert1LX",
+      "url": "http://www.google.com.ec/search?q=agencia+de+marketing+digital+Puyo+Pastaza&hl=es",
+      "loadedUrl": "http://www.google.com.ec/search?q=agencia+de+marketing+digital+Puyo+Pastaza&hl=es",
+      "method": "GET",
+      "retryCount": 0,
+      "errorMessages": [],
+      "statusCode": 200
+    },
+    "#error": false,
+    "searchQuery": {
+      "term": "agencia de marketing digital Puyo Pastaza",
+      "url": "http://www.google.com.ec/search?q=agencia+de+marketing+digital+Puyo+Pastaza&hl=es",
+      "device": "DESKTOP",
+      "page": 1,
+      "type": "SEARCH",
+      "domain": "google.com.ec",
+      "countryCode": "EC",
+      "languageCode": "es",
+      "locationUule": null,
+      "resultsPerPage": 10
+    },
+    "url": "http://www.google.com.ec/search?q=agencia+de+marketing+digital+Puyo+Pastaza&hl=es",
+    "hasNextPage": true,
+    "serpProviderCode": "L",
+    "relatedQueries": [],
+    "paidResults": [],
+    "paidProducts": [],
+    "organicResults": [
+      {
+        "title": "Level Marketing Coach | Puyo",
+        "websiteTitle": "Facebook · Level Marketing Coach",
+        "url": "https://www.facebook.com/levelmarketingcompany/?locale=es_LA",
+        "displayedUrl": "Más de 1.4 K seguidores",
+        "description": "✓ Atención al cliente digital. ✓ Atención al cliente en el punto de venta. ✓ Manejo de Objeciones y reclamos. ✓ Liderazgo y gestión de resultados. Al ...",
+        "emphasizedKeywords": [
+          "Atención al cliente digital"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "averageRating": 5,
+        "numberOfReviews": 6,
+        "type": "organic",
+        "position": 1
+      },
+      {
+        "title": "Strateging Agencia de Marketing digital | Puyo",
+        "websiteTitle": "Facebook · Strateging Agencia de Marketing digital",
+        "url": "https://www.facebook.com/strateging/?locale=es_LA",
+        "displayedUrl": "Más de 4.4 K seguidores",
+        "description": "Nos encargamos de crear contenido atractivo, aumentar tu visibilidad y conectar con tu audiencia, todo mientras tú te enfocas en lo que mejor haces. ✓ Gestión ...",
+        "emphasizedKeywords": [
+          "Nos encargamos de crear contenido atractivo, aumentar tu visibilidad y conectar con tu audiencia"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 2
+      },
+      {
+        "title": "Agencia de Marketing Digital en Ecuador",
+        "websiteTitle": "Agencia Trasciende",
+        "url": "https://agenciatrasciende.com/",
+        "displayedUrl": "https://agenciatrasciende.com",
+        "description": "Brindamos soluciones integrales. Desde la creación de una marca, desarrollo de contenido, fotografía, video marketing, diseño web, gestión de social media, ...",
+        "emphasizedKeywords": [
+          "Brindamos soluciones integrales"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 3
+      },
+      {
+        "title": "Agencia de Marketing Digital",
+        "websiteTitle": "M8Digital",
+        "url": "https://www.m8digital.net/",
+        "displayedUrl": "https://www.m8digital.net",
+        "description": "Nos enfocamos en el Crecimiento de los Negocios a través de la Publicidad Digital por medio del manejo de Redes Sociales (Facebook, Instagram, LinkedIn y más), ...",
+        "emphasizedKeywords": [
+          "Nos enfocamos en el Crecimiento de los Negocios a través de la Publicidad Digital"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 4
+      },
+      {
+        "title": "Agencia de Marketing Digital",
+        "websiteTitle": "Marketeros Agencia",
+        "url": "https://www.marketerosagencia.com/ec/",
+        "displayedUrl": "https://www.marketerosagencia.com › ...",
+        "description": "Nuestra experiencia nos permite desarrollar procesos de identificación, planeación y desarrollo de estrategias digitales que llevan a tus activos digitales, y ...",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 5
+      },
+      {
+        "title": "Cometa: Marketing Digital",
+        "websiteTitle": "cometa.ec",
+        "url": "https://www.cometa.ec/",
+        "displayedUrl": "https://www.cometa.ec",
+        "description": "Impulsamos tu marca mediante estratégias de marketing basadas en datos. Growth Marketing, Inbound Marketing, Marketing Automatizado.",
+        "date": "2024-10-24T12:00:00.000Z",
+        "emphasizedKeywords": [
+          "Impulsamos tu marca mediante estratégias de marketing basadas en datos"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 6
+      },
+      {
+        "title": "Serendipia tu agencia de publicidad digital en Ecuador",
+        "websiteTitle": "serendipia.ec",
+        "url": "https://serendipia.ec/agencia-de-publicidad/",
+        "displayedUrl": "https://serendipia.ec › agencia-de-publicidad",
+        "description": "Somos Serendipia, una agencia de publicidad digital con metodología europea. Tenemos presencia en las principales ciudades de Ecuador.",
+        "emphasizedKeywords": [
+          "agencia",
+          "digital"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 7
+      },
+      {
+        "title": "Top Digital Marketing Agencies in Ecuador",
+        "websiteTitle": "Clutch - The Leading Marketplace for Finding Business Services",
+        "url": "https://clutch.co/ec/agencies/digital-marketing",
+        "displayedUrl": "https://clutch.co › agencies › dig...",
+        "description": "Recommended Digital Marketing companies in Ecuador include Estudio XYX, SYNERGIA MKT DIGITAL, Oderbiz, Serendipia Marketing Digital y SEO, Helicoid Studio ...",
+        "emphasizedKeywords": [
+          "Marketing Digital"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 8
+      },
+      {
+        "title": "Agencia de marketing digital - Creativa digital",
+        "websiteTitle": "creativadigitalec.com",
+        "url": "https://creativadigitalec.com/",
+        "displayedUrl": "https://creativadigitalec.com",
+        "description": "En Creativa Digital diseñamos estrategias digitales para obtener resultados reales. · Convertimos ideas en acciones concretas que marcan la diferencia. · Lo que ...",
+        "emphasizedKeywords": [
+          "diseñamos estrategias digitales para obtener resultados reales"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 9
+      }
+    ],
+    "suggestedResults": [],
+    "peopleAlsoAsk": [],
+    "customData": null,
+    "htmlSnapshotUrl": "https://api.apify.com/v2/key-value-stores/oVXQOnFJ72HCsuXW6/records/FZXaSW7u1ert1LX-0.html?signature=1puJkRURgIwifrECQM61D"
+  },
+  {
+    "#debug": {
+      "requestId": "E7ZTsng8hrWkAD4",
+      "url": "http://www.google.com.ec/search?q=agencias+de+marketing+digital+Ecuador+servicios+destacados&hl=es",
+      "loadedUrl": "http://www.google.com.ec/search?q=agencias+de+marketing+digital+Ecuador+servicios+destacados&hl=es",
+      "method": "GET",
+      "retryCount": 0,
+      "errorMessages": [],
+      "statusCode": 200
+    },
+    "#error": false,
+    "searchQuery": {
+      "term": "agencias de marketing digital Ecuador servicios destacados",
+      "url": "http://www.google.com.ec/search?q=agencias+de+marketing+digital+Ecuador+servicios+destacados&hl=es",
+      "device": "DESKTOP",
+      "page": 1,
+      "type": "SEARCH",
+      "domain": "google.com.ec",
+      "countryCode": "EC",
+      "languageCode": "es",
+      "locationUule": null,
+      "resultsPerPage": 10
+    },
+    "url": "http://www.google.com.ec/search?q=agencias+de+marketing+digital+Ecuador+servicios+destacados&hl=es",
+    "hasNextPage": true,
+    "serpProviderCode": "L",
+    "relatedQueries": [
+      {
+        "title": "Agencia de marketing digital guayaquil",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencia+de+marketing+digital+guayaquil&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAg-EAE"
+      },
+      {
+        "title": "Agencias de marketing Ecuador",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencias+de+marketing+Ecuador&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhZEAE"
+      },
+      {
+        "title": "Agencia marketing digital Ecuador",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencia+marketing+digital+Ecuador&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhaEAE"
+      },
+      {
+        "title": "Agencias de marketing digital Quito",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencias+de+marketing+digital+Quito&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhYEAE"
+      },
+      {
+        "title": "Agencias de marketing Quito",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencias+de+marketing+Quito&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhXEAE"
+      },
+      {
+        "title": "Serendipia agencia de marketing digital",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Serendipia+agencia+de+marketing+digital&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhMEAE"
+      },
+      {
+        "title": "Agencia de marketing Guayaquil",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencia+de+marketing+Guayaquil&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhJEAE"
+      },
+      {
+        "title": "Hello HELLO agencia",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Hello+HELLO+agencia&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhHEAE"
+      },
+      {
+        "title": "Agencia de marketing digital guayaquil",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencia+de+marketing+digital+guayaquil&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAg-EAE"
+      },
+      {
+        "title": "Agencias de marketing Ecuador",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencias+de+marketing+Ecuador&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhZEAE"
+      },
+      {
+        "title": "Agencia marketing digital Ecuador",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencia+marketing+digital+Ecuador&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhaEAE"
+      },
+      {
+        "title": "Agencias de marketing digital Quito",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencias+de+marketing+digital+Quito&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhYEAE"
+      },
+      {
+        "title": "Agencias de marketing Quito",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencias+de+marketing+Quito&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhXEAE"
+      },
+      {
+        "title": "Serendipia agencia de marketing digital",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Serendipia+agencia+de+marketing+digital&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhMEAE"
+      },
+      {
+        "title": "Agencia de marketing Guayaquil",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Agencia+de+marketing+Guayaquil&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhJEAE"
+      },
+      {
+        "title": "Hello HELLO agencia",
+        "url": "https://www.google.com.ec/search?sca_esv=b60cf111ab395866&hl=es-419&sxsrf=APpeQnu7gLCnDxTGmFxwUy_TnTcQq07B8w:1791860879224&q=Hello+HELLO+agencia&sa=X&ved=2ahUKEwikosX5gbaXAxXCna8BHQjcLsYQ1QJ6BAhHEAE"
+      }
+    ],
+    "paidResults": [],
+    "paidProducts": [],
+    "organicResults": [
+      {
+        "title": "Agencia de Marketing Digital en Ecuador ✔️ AMD Agencia",
+        "websiteTitle": "agenciadigital.com.ec",
+        "url": "https://agenciadigital.com.ec/",
+        "displayedUrl": "https://agenciadigital.com.ec",
+        "description": "Diseño de páginas web · Diseño Ecommerce · Desarrollo web a la medida · Desarrollo de aplicaciones · Desarrollo de Software · Comunicación Digital.",
+        "emphasizedKeywords": [
+          "Diseño de páginas web"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 1
+      },
+      {
+        "title": "Las mejores agencias de marketing digital en Ecuador",
+        "websiteTitle": "Linkatomic",
+        "url": "https://linkatomic.com/es/agencias/ecuador/",
+        "displayedUrl": "https://linkatomic.com › agencias › ecuador",
+        "description": "En Ecuapromo somos el aliado que necesitas para promocionar e impulsar el crecimiento de tu marca en Guayaquil con estrategias avanzadas de marketing digital.",
+        "emphasizedKeywords": [
+          "Ecuapromo"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 2
+      },
+      {
+        "title": "Agencia de Marketing Digital en Ecuador",
+        "websiteTitle": "Agencia Trasciende",
+        "url": "https://agenciatrasciende.com/",
+        "displayedUrl": "https://agenciatrasciende.com",
+        "description": "Brindamos soluciones integrales. Desde la creación de una marca, desarrollo de contenido, fotografía, video marketing, diseño web, gestión de social media, ...",
+        "emphasizedKeywords": [
+          "desarrollo de contenido, fotografía, video marketing, diseño web, gestión de social media"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 3
+      },
+      {
+        "title": "Monkey Plus: Agencia de marketing digital Quito y Guayaquil ...",
+        "websiteTitle": "Monkey Plus BC",
+        "url": "https://monkeyplusbc.com/",
+        "displayedUrl": "https://monkeyplusbc.com",
+        "description": "Agencia de marketing digital en Quito Guayaquil Ecuador con enfoque integral: estrategia de embudo completo, automatización de ventas, SMarketing (fusión ...",
+        "emphasizedKeywords": [
+          "Agencia de marketing digital en Quito Guayaquil Ecuador"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 4
+      },
+      {
+        "title": "Agencia de marketing digital en Quito y Guayaquil | HELLO",
+        "websiteTitle": "hellomediaec.com",
+        "url": "https://hellomediaec.com/",
+        "displayedUrl": "https://hellomediaec.com",
+        "description": "Agencia de marketing digital en Quito Guayaquil Ecuador, expertos en 360, Growth, SEO, SEM, Branding y publicidad ADS con inteligencia artificial.",
+        "emphasizedKeywords": [
+          "expertos en 360, Growth, SEO, SEM, Branding y publicidad ADS"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 5
+      },
+      {
+        "title": "Agencia de Marketing Digital Ecuador y Guayaquil | Altitude",
+        "websiteTitle": "Altitude Digital Marketing",
+        "url": "https://www.altitude.ec/",
+        "displayedUrl": "https://www.altitude.ec",
+        "description": "Agencia de marketing digital en Guayaquil: generación de leads con Google y Meta Ads, redes sociales, diseño web y SEO. +500 clientes desde 2016.",
+        "emphasizedKeywords": [
+          "generación de leads con Google y Meta Ads, redes sociales, diseño web y SEO"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 6
+      },
+      {
+        "title": "Agencia de Marketing Digital",
+        "websiteTitle": "M8Digital",
+        "url": "https://www.m8digital.net/",
+        "displayedUrl": "https://www.m8digital.net",
+        "description": "Marketing de Contenidos · Manejo de Redes Sociales · Fotografía Digital · Entre los principales Servicios de nuestra Agencia Marketing Digital, M8Digital ...",
+        "emphasizedKeywords": [
+          "Marketing de Contenidos"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 7
+      },
+      {
+        "title": "Agencia de Marketing Digital en Quito | Growth, Ads + IA",
+        "websiteTitle": "INNOVAcenter",
+        "url": "https://www.innovacenter.ec/agencia-de-marketing-digital/",
+        "displayedUrl": "https://www.innovacenter.ec › agencia-de-marketing-di...",
+        "description": "Servicios de marketing digital para posicionar, captar y convertir · Estrategia comercial y arquitectura de ventas · Posicionamiento SEO, GEO y AEO · Publicidad ...",
+        "emphasizedKeywords": [
+          "Servicios de marketing digital para posicionar, captar y convertir"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 8
+      },
+      {
+        "title": "Marketing Digital: Agencia de Marketing y Publicidad Digital ...",
+        "websiteTitle": "niuk.com.ec",
+        "url": "https://niuk.com.ec/",
+        "displayedUrl": "https://niuk.com.ec",
+        "description": "Descubre cómo nuestra Agencia de Marketing y Publicidad Digital Quito te ayuda a aumentar ventas y clientes potenciales. Cotiza al 09981141511.",
+        "emphasizedKeywords": [
+          "Agencia de Marketing y Publicidad Digital Quito"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 9
+      }
+    ],
+    "suggestedResults": [],
+    "peopleAlsoAsk": [
+      {
+        "answer": null,
+        "question": "¿Cuáles son las mejores agencias de marketing digital en Ecuador?",
+        "title": null,
+        "url": null,
+        "date": null
+      },
+      {
+        "answer": null,
+        "question": "¿Cuánto cobra una agencia de marketing digital en Ecuador?",
+        "title": null,
+        "url": null,
+        "date": null
+      },
+      {
+        "answer": null,
+        "question": "¿Cuál es la mejor agencia de marketing digital?",
+        "title": null,
+        "url": null,
+        "date": null
+      },
+      {
+        "answer": null,
+        "question": "¿Cuáles son 5 nombres de empresas de servicios en Ecuador?",
+        "title": null,
+        "url": null,
+        "date": null
+      }
+    ],
+    "aiOverview": {
+      "type": "live",
+      "content": "En Ecuador, varias agencias de marketing digital destacadas ofrecen servicios integrales de posicionamiento, publicidad y estrategia.AMD AgenciaUbicación: Quito.Servicios destacados: SEO, GEO (optimización para motores de respuesta), AEO (optimización para motores de respuestas de IA), diseño web profesional, inbound marketing, publicidad digital, social media y automatización con su método CriterIA™.HELLO MediaUbicación: Quito y Guayaquil.Servicios destacados: Estrategia 360°, marketing digital, branding, relaciones públicas (RRPP), campañas ATL/BTL, Sales Marketing (captación de leads) y posicionamiento con Business Data e Inteligencia Artificial.Monkey PlusUbicación: Quito y Guayaquil.Servicios destacados: Marketing integral, desarrollo web JAMstack (con carga rápida menor a 2 segundos), e-commerce, automatización con CRM y flujos de IA, además de campañas con influencers.Agencia TrasciendeUbicación: Guayaquil.Servicios destacados: SEO/SEM, desarrollo web adaptado a normativas, perfiles de Google Business, embudos de conversión, \"Pauta Flash\" (lanzamientos rápidos en 48 horas) y branding.Agencia BIOUbicación: Quito, Guayaquil, Cuenca, Ambato, Loja y Miami.Servicios destacados: Growth Hacking, desarrollo de sitios web y e-commerce, consultorías, auditorías y mentorías estratégicas.Tarifas Referenciales en el Mercado LocalEl fee o costo mensual por gestión de una agencia en Ecuador suele ubicarse entre $400 y $1,500 USD, dependiendo de la cantidad de canales (Meta Ads, Google Ads, SEO, redes sociales) y el nivel de automatización requerido.Si buscas una agencia para un objetivo específico (por ejemplo: ventas B2B, tienda e-commerce, posicionamiento local en Quito o Guayaquil), dime tu meta y te ayudo a filtrar la mejor opción.Si buscas una agencia para un objetivo específico (por ejemplo: ventas B2B, tienda e-commerce, posicionamiento local en Quito o Guayaquil), dime tu meta y te ayudo a filtrar la mejor opción.Las respuestas de la IA pueden incluir errores. Más informaciónSe copió en el portapapelesNo se pudo copiar la información en el portapapeles.  Vuelve a intentarlo más tarde.CopiadoNo se pudo copiarCopiarCompartir el vínculo públicoEste vínculo público es válido durante 7 días y comparte una conversación, incluida la información personal que agregaste. No se puede borrar este vínculo ni las copias que hayan hecho otras personas. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el vínculo en este momento. Vuelve a intentarlo más tarde.FacebookGmailXRedditWhatsAppCompartirRespuesta correctaRespuesta incorrectaMás",
+      "sources": []
+    },
+    "customData": null,
+    "htmlSnapshotUrl": "https://api.apify.com/v2/key-value-stores/oVXQOnFJ72HCsuXW6/records/E7ZTsng8hrWkAD4-0.html?signature=1ANh2v1noh2tKX09YFDzA"
+  },
+  {
+    "#debug": {
+      "requestId": "EVBA7CzDvQVVVPH",
+      "url": "http://www.google.com.ec/search?q=dise%C3%B1o+grafico+y+publicidad+Puyo+Ecuador&hl=es",
+      "loadedUrl": "http://www.google.com.ec/search?q=dise%C3%B1o+grafico+y+publicidad+Puyo+Ecuador&hl=es",
+      "method": "GET",
+      "retryCount": 0,
+      "errorMessages": [],
+      "statusCode": 200
+    },
+    "#error": false,
+    "searchQuery": {
+      "term": "diseño grafico y publicidad Puyo Ecuador",
+      "url": "http://www.google.com.ec/search?q=dise%C3%B1o+grafico+y+publicidad+Puyo+Ecuador&hl=es",
+      "device": "DESKTOP",
+      "page": 1,
+      "type": "SEARCH",
+      "domain": "google.com.ec",
+      "countryCode": "EC",
+      "languageCode": "es",
+      "locationUule": null,
+      "resultsPerPage": 10
+    },
+    "url": "http://www.google.com.ec/search?q=dise%C3%B1o+grafico+y+publicidad+Puyo+Ecuador&hl=es",
+    "hasNextPage": true,
+    "serpProviderCode": "L",
+    "relatedQueries": [],
+    "paidResults": [],
+    "paidProducts": [],
+    "organicResults": [
+      {
+        "title": "Pixel Diseño & Publicidad",
+        "websiteTitle": "Facebook · Pixel Diseño & Publicidad",
+        "url": "https://m.facebook.com/1632433073650501/photos/3783668088526978/",
+        "displayedUrl": "hace 4 años",
+        "description": "Otro proyecto terminado con éxito. Realizamos la fabricación e instalación de la rotulación para este centro de neurodesarrollo, ...",
+        "emphasizedKeywords": [
+          "Realizamos la fabricación e instalación de la rotulación"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 1
+      },
+      {
+        "title": "Pixel Diseño & Publicidad « HEY EMPRESAS",
+        "websiteTitle": "guiabbb.ec",
+        "url": "https://empresas.guiabbb.ec/03026659/Pixel_Dise%C3%B1o_&_Publicidad",
+        "displayedUrl": "https://empresas.guiabbb.ec › Pixel_Diseño_&_Publicid...",
+        "description": "... publicidad en todo nivel, Actualizar descripción. Dirección: 24 de Mayo y Ángel Manzano, detrás del Coliseo Municipal de Puyo El Puyo. Horario: Lunes: 08:00 ...",
+        "emphasizedKeywords": [
+          "Dirección: 24 de Mayo y Ángel Manzano, detrás del Coliseo Municipal de Puyo El Puyo"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 2
+      },
+      {
+        "title": "LOGOS Marketing y Publicidad | Puyo",
+        "websiteTitle": "Facebook · LOGOS Marketing y Publicidad",
+        "url": "https://www.facebook.com/61578686788996/?locale=zh_CN",
+        "displayedUrl": "Más de 40 seguidores",
+        "description": "En LOGOS te ofrecemos lo mejor en volantes, tarjetas de presentación, lonas, pendones, creación de logos y más 🖨️   Ubícanos en la Avenida Francisco de ...",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 3
+      },
+      {
+        "title": "PIXEL Estudio de Diseño - Puyo",
+        "websiteTitle": "AiYellow",
+        "url": "https://www.aiyellow.com/pixelestudio/",
+        "displayedUrl": "https://www.aiyellow.com › pixelestudio",
+        "description": "Publicidad y Diseño Gráfico en el Puyo * Afiches, trípticos, revistas. tarjetas de presentación, etc. * Material Promocional * Señalética * Estampados en ...",
+        "emphasizedKeywords": [
+          "Publicidad y Diseño Gráfico en el Puyo"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 4
+      },
+      {
+        "title": "LOGOS Marketing y Publicidad | Puyo",
+        "websiteTitle": "Facebook · LOGOS Marketing y Publicidad",
+        "url": "https://www.facebook.com/61578686788996/?locale=bs_BA",
+        "displayedUrl": "Más de 40 seguidores",
+        "description": "En LOGOS te ofrecemos lo mejor en volantes, tarjetas de presentación, lonas, pendones, creación de logos y más 🖨️   Ubícanos en la Avenida Francisco de ...",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 5
+      },
+      {
+        "title": "Diseño de Páginas Web en Puyo - Pastaza, Ecuador",
+        "websiteTitle": "iPaginaWeb",
+        "url": "https://ipaginaweb.com/diseno/ecuador/pastaza/puyo/",
+        "displayedUrl": "https://ipaginaweb.com › Ecuador › Pastaza",
+        "description": "Creación y diseño de páginas auto administrables en Puyo - Pastaza, Ecuador, optimizadas para SEO y conversión. Sitios rápidos, seguros y listos para captar ...",
+        "emphasizedKeywords": [
+          "Creación y diseño de páginas auto administrables en Puyo"
+        ],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 6
+      },
+      {
+        "title": "LOGOS Marketing y Publicidad | Puyo",
+        "websiteTitle": "Facebook · LOGOS Marketing y Publicidad",
+        "url": "https://www.facebook.com/61578686788996/?locale=nn_NO",
+        "displayedUrl": "Más de 40 seguidores",
+        "description": "En LOGOS te ofrecemos lo mejor en volantes, tarjetas de presentación, lonas, pendones, creación de logos y más 🖨️   Ubícanos en la Avenida Francisco de ...",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 7
+      },
+      {
+        "title": "LOGOS Marketing y Publicidad | Puyo",
+        "websiteTitle": "Facebook · LOGOS Marketing y Publicidad",
+        "url": "https://www.facebook.com/61578686788996/?locale=ru_RU",
+        "displayedUrl": "Más de 40 seguidores",
+        "description": "En LOGOS te ofrecemos lo mejor en volantes, tarjetas de presentación, lonas, pendones, creación de logos y más 🖨️   Ubícanos en la Avenida Francisco de ...",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 8
+      },
+      {
+        "title": "LOGOS Marketing y Publicidad | Puyo",
+        "websiteTitle": "Facebook · LOGOS Marketing y Publicidad",
+        "url": "https://www.facebook.com/61578686788996/?locale=sk_SK",
+        "displayedUrl": "Más de 40 seguidores",
+        "description": "En LOGOS te ofrecemos lo mejor en volantes, tarjetas de presentación, lonas, pendones, creación de logos y más 🖨️   Ubícanos en la Avenida Francisco de ...",
+        "emphasizedKeywords": [],
+        "siteLinks": [],
+        "productInfo": {},
+        "type": "organic",
+        "position": 9
+      }
+    ],
+    "suggestedResults": [],
+    "peopleAlsoAsk": [],
+    "aiOverview": {
+      "type": "live",
+      "content": "En Puyo, Ecuador, existen varias agencias y estudios locales de diseño gráfico y publicidad que ofrecen servicios de impresión, rotulación, branding y material promocional:Pixel Diseño & Publicidad (también conocido como Pixel Estudio de Diseño)Servicios: Diseño gráfico, afiches, trípticos, revistas, tarjetas de presentación, gigantografías, señalética, rotulación, letreros e impresión en general.Dirección: 24 de Mayo y Ángel Manzano (detrás del Coliseo Municipal de Puyo).Horario: Lunes a viernes de 08:00 a 17:30.Teléfonos de contacto: 0984711611 / 0984832236.LOGOS Marketing y PublicidadServicios: Creación de logos, volantes, tarjetas de presentación, lonas, pendones y publicidad creativa.Dirección: Av. Francisco de Orellana y General Villamil (al lado del CNT Puyo-Pastaza).Horario: Lunes a sábado de 9:00 a 18:00.WhatsApp: 0995067180 (LOGOS Marketing y Publicidad).Diseño de Páginas Web en PuyoServicios: Creación y diseño de sitios web autoadministrables, optimizados para SEO y conversión digital para negocios locales.Web oficial: IPaginaWeb Puyo.Si necesitas un servicio en específico (como imprenta física, redes sociales o rotulación de locales), dime qué buscas para indicarte cuál se adapta mejor a tu proyecto.Si necesitas un servicio en específico (como imprenta física, redes sociales o rotulación de locales), dime qué buscas para indicarte cuál se adapta mejor a tu proyecto. Más informaciónSe copió en el portapapelesNo se pudo copiar la información en el portapapeles.  Vuelve a intentarlo más tarde.CopiadoNo se pudo copiarCopiarCompartir el vínculo públicoEste vínculo público es válido durante 7 días y comparte una conversación, incluida la información personal que agregaste. No se puede borrar este vínculo ni las copias que hayan hecho otras personas. Si lo compartes con terceros, se aplicarán sus políticas.No se puede copiar el vínculo en este momento. Vuelve a intentarlo más tarde.FacebookGmailXRedditWhatsAppCompartirRespuesta correctaRespuesta incorrectaMás",
+      "sources": [
+        {
+          "url": "https://m.facebook.com/1632433073650501/photos/3783668088526978/",
+          "title": "Pixel Diseño & Publicidad - Facebook",
+          "description": "Otro proyecto terminado con éxito. Realizamos la fabricación e instalación de la rotulación para este centro de neurodesarrollo, c..."
+        },
+        {
+          "url": "https://www.aiyellow.com/pixelestudio/",
+          "title": "PIXEL Estudio de Diseño - Puyo - AiYellow",
+          "description": "Publicidad y Diseño Gráfico en el Puyo * Afiches, trípticos, revistas. tarjetas de presentación, etc. * Material Promocional * Señ..."
+        },
+        {
+          "url": "https://www.facebook.com/61578686788996/?locale=zh_CN",
+          "title": "LOGOS Marketing y Publicidad | Puyo - Facebook",
+          "description": "En LOGOS te ofrecemos lo mejor en volantes, tarjetas de presentación, lonas, pendones, creación de logos y más 🖨️ Ubícanos en la ..."
+        }
+      ]
+    },
+    "customData": null,
+    "htmlSnapshotUrl": "https://api.apify.com/v2/key-value-stores/oVXQOnFJ72HCsuXW6/records/EVBA7CzDvQVVVPH-0.html?signature=kpxYoZG4lfj0PEnhKpQG"
+  }
+]

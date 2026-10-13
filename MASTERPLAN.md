@@ -1,10 +1,22 @@
 # 🧭 MASTERPLAN DEL PROYECTO
 
 > **Última actualización:** 12 de Octubre, 2026  
-> **Estado general:** Fase 1 (80% completado) - Preparando Fase 2  
+> **Estado general:** Fase 2 completada (45% avance global) - Entrando a Fase 3 y 4  
 > **Marca:** **NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL**  
 > **Ubicación:** Puyo, Pastaza, Ecuador (Av. Alberto Zambrano esquina, diagonal a Cooperativa OSCUS)  
 > **Slogan:** _Estrategias • Creatividad • Resultados_  
+
+---
+
+## 📊 Tablero de Estado General
+
+| Fase | Descripción | Estado | Progreso |
+| :--- | :--- | :---: | :---: |
+| **Fase 1** | Entorno, Credenciales, Marca e Identidad | 🟢 Completada | 100% |
+| **Fase 2** | Estudio de Mercado Automatizado (Apify) | 🟢 Completada | 100% |
+| **Fase 3** | Estrategia de Marketing, Branding & Copywriting | 🟡 En progreso | 60% |
+| **Fase 4** | Desarrollo de Landing Page de Alta Conversión | ⚪ Siguiente paso | 0% |
+| **Fase 5** | Conexión Automática GitHub + Vercel (CI/CD) | ⚪ Pendiente | 0% |
 
 ---
 
@@ -24,22 +36,6 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 | **Blanco Nieve** | `#FFFFFF` | Contraste limpio, textos sobre fondos oscuros, fondos claros |
 | **Gris Plata** | `#D1D5DB` / `#8C8C8C` | Bordes sutiles, textos secundarios, separadores |
 
-### Simbología de Marca
-*   **Isotipo Orbitante:** Órbita circular con flecha de avance continuo, denotando agilidad y transformación digital.
-*   **Patrón Étnico Amazónico:** Trama geométrica en el pilar de la 'N', anclando la identidad de la agencia con el origen amazónico de Puyo / Pastaza, aportando una personalidad única frente a competidores genéricos.
-
----
-
-## 📊 Tablero de Estado General
-
-| Fase | Descripción | Estado | Progreso |
-| :--- | :--- | :---: | :---: |
-| **Fase 1** | Entorno, Credenciales, Marca e Identidad | 🟡 En progreso | 80% |
-| **Fase 2** | Estudio de Mercado Automatizado (Apify) | ⚪ Pendiente de Token | 0% |
-| **Fase 3** | Estrategia de Marketing, Branding & Copywriting | ⚪ Pendiente | 0% |
-| **Fase 4** | Desarrollo de Landing Page de Alta Conversión | ⚪ Pendiente | 0% |
-| **Fase 5** | Conexión Automática GitHub + Vercel (CI/CD) | ⚪ Pendiente | 0% |
-
 ---
 
 ## 🎯 Detalle por Fases
@@ -51,35 +47,28 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 - [x] Asegurar exclusión de secretos en el control de versiones ([`.gitignore`](file:///c:/Users/Administrador/Documents/macroactividad/.gitignore)).
 - [x] Registrar identidad de la marca, ubicación geográfica y slogan.
 - [x] Incorporar y catalogar logotipos de Nómadas en el proyecto ([`assets/branding/`](file:///c:/Users/Administrador/Documents/macroactividad/assets/branding)).
-- [ ] Colocar credenciales en `.env` (`APIFY_API_TOKEN`, `GITHUB_TOKEN`, `VERCEL_TOKEN`).
+- [x] Conexión y validación de `APIFY_API_TOKEN` en Node.js.
 
 ---
 
 ### Fase 2: Estudio de Mercado Automatizado (Apify)
-- [ ] Configurar SDK/cliente de Apify en Node.js.
-- [ ] Definir objetivos de scraping:
-  - **Competidores locales/regionales en Puyo, Pastaza y Amazonía ecuatoriana** (agencias de publicidad, estudios de diseño, freelancers en Google Maps, Instagram, Facebook).
-  - **Agencias referentes a nivel nacional (Quito, Guayaquil, Cuenca)** para benchmark de servicios, precios y propuestas de valor.
-  - **Nichos de clientes potenciales en Puyo** (turismo, hotelería, gastronomía, comercio local, cooperativas, emprendimientos de la región).
-- [ ] Ejecutar actores de Apify (Google Maps Scraper, Instagram Scraper, etc.).
-- [ ] Consolidar dataset de competidores y clientes en formato estructurado.
-- [ ] Elaborar informe FODA y detección de oportunidades de diferenciación.
+- [x] Configurar SDK de Apify y dependencias (`apify-client`, `dotenv`).
+- [x] Ejecutar extracción de mercado con actor `apify/google-search-scraper` para Ecuador y Puyo/Pastaza.
+- [x] Exportar dataset en bruto a [`data/market-research/google-search-results.json`](file:///c:/Users/Administrador/Documents/macroactividad/data/market-research/google-search-results.json).
+- [x] Analizar competidores locales (Pixel, LOGOS, Strateging) vs. referentes nacionales (Altitude, Monkey Plus, HELLO).
+- [x] Generar el informe estratégico [`data/market-research/MARKET_RESEARCH_REPORT.md`](file:///c:/Users/Administrador/Documents/macroactividad/data/market-research/MARKET_RESEARCH_REPORT.md).
 
 ---
 
 ### Fase 3: Estrategia de Marketing, Branding & Copywriting
-- [ ] Diseñar el perfil de **Buyer Persona** para el mercado local y nacional.
-- [ ] Redactar la **Propuesta Única de Valor (UVP)** para Nómadas.
-- [ ] Definir catálogo de servicios clave:
-  - Identidad visual & Branding.
-  - Social Media Management & Estrategia de Contenidos.
-  - Diseño y Desarrollo Web / Landing Pages de conversión.
-  - Campañas de Pauta Digital (Meta Ads / Google Ads).
-- [ ] Redactar el Copywriting de alta conversión para la Landing Page:
-  - Titulares magnéticos y propuesta de transformación.
-  - Sección de portafolio y prueba social.
-  - Tratamiento de objeciones comunes de contratación de agencias.
-  - Llamadas a la acción (CTA) orientadas a WhatsApp y formulario.
+- [x] Diseñar el perfil de **Buyer Persona** y mapear dolores locales (empresas atrapadas en métodos tradicionales).
+- [x] Definir la **Propuesta Única de Valor (UVP)** diferenciadora de Nómadas.
+- [x] Estructurar los 4 pilares de servicios de alta demanda:
+  1. Branding & Identidad Visual Estratégica.
+  2. Landing Pages y Sitios Web de Alta Conversión.
+  3. Pauta Digital Inteligente (Meta & Google Ads con retorno medible).
+  4. Redes Sociales & Producción de Contenido Audiovisual.
+- [ ] Redacción final del copy sección por sección para la Landing Page (Hero, Servicios, Prueba Social, FAQ, CTA).
 
 ---
 
@@ -93,9 +82,9 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 ---
 
 ### Fase 5: Conexión Automática GitHub + Vercel (CI/CD)
-- [ ] Crear repositorio remoto en GitHub vía API / CLI.
-- [ ] Vincular y subir código (`origin/main`).
-- [ ] Configurar despliegue continuo en Vercel.
+- [ ] Configurar `GITHUB_TOKEN` para creación de repo remoto.
+- [ ] Subir código base a GitHub (`origin/main`).
+- [ ] Conectar con Vercel para despliegue automático continuo.
 - [ ] Configurar dominio y variables de entorno de producción.
 - [ ] Verificación final de producción en vivo.
 
@@ -103,9 +92,8 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 
 ## 📝 Bitácora de Avances (Changelog)
 
-* **12-Oct-2026**:
-  * Inicialización del repositorio Git local y blindaje de credenciales.
-  * Localización e integración de las 3 versiones oficiales del logotipo de **Nómadas** en [`assets/branding/`](file:///c:/Users/Administrador/Documents/macroactividad/assets/branding).
-  * Extracción y documentación de la paleta cromática oficial (Naranja `#E25822`, Negro Ónix, Blanco, Plata).
-  * Integración de los metadatos de ubicación (Puyo, Pastaza, Av. Alberto Zambrano esquina, diagonal a Coop. OSCUS) en `.env` y el Masterplan.
-  * Planificación del alcance de investigación de mercado en Apify adaptado al contexto local y nacional.
+* **12-Oct-2026 (Noche)**:
+  * Validación exitosa de credenciales de Apify (`pleasant_element`, Plan Free).
+  * Extracción con Apify de 27 resultados orgánicos sobre diseño, publicidad y agencias en Puyo y Ecuador.
+  * Hallazgo estratégico clave: Competidores locales enfocados en gigantografías e imprenta tradicional; Nómadas tiene el campo libre para liderar el segmento digital moderno 360 (Web + Ads + Branding + Contenido).
+  * Creación del informe [**`data/market-research/MARKET_RESEARCH_REPORT.md`**](file:///c:/Users/Administrador/Documents/macroactividad/data/market-research/MARKET_RESEARCH_REPORT.md).
