@@ -87,14 +87,16 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#0F0F11]/85 border-b border-zinc-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="relative h-12 w-48 sm:w-56 overflow-hidden">
-              <Image
-                src="/branding/logo-dark.jpg"
-                alt="NÓMADAS Agencia de Diseño y Marketing Digital"
-                fill
-                priority
-                className="object-contain object-left"
-              />
+            <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-md border border-white/90 flex items-center justify-center">
+              <div className="relative h-9 w-44 sm:w-52">
+                <Image
+                  src="/branding/logo.png"
+                  alt="NÓMADAS Agencia de Diseño y Marketing Digital"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
 
@@ -615,13 +617,15 @@ export default function HomePage() {
 
             {/* Tarjeta de visita / ambient */}
             <div className="relative rounded-3xl overflow-hidden border border-zinc-700 bg-gradient-to-tr from-[#1B1B22] to-zinc-900 p-8 sm:p-10 text-center">
-              <div className="relative h-20 w-64 mx-auto mb-6">
-                <Image
-                  src="/branding/logo-orange.jpg"
-                  alt="Nómadas Logo"
-                  fill
-                  className="object-contain"
-                />
+              <div className="bg-white rounded-2xl p-4 shadow-xl max-w-xs mx-auto mb-6 flex items-center justify-center border border-zinc-100">
+                <div className="relative h-14 w-60">
+                  <Image
+                    src="/branding/logo.png"
+                    alt="NÓMADAS Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <h3 className="text-2xl font-black text-white mb-2">¿Tienes un proyecto en mente?</h3>
               <p className="text-zinc-400 text-sm max-w-md mx-auto mb-8">
@@ -690,13 +694,15 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div>
-              <div className="relative h-12 w-48 mx-auto md:mx-0 mb-3">
-                <Image
-                  src="/branding/logo-dark.jpg"
-                  alt="NÓMADAS"
-                  fill
-                  className="object-contain object-center md:object-left"
-                />
+              <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-md inline-flex items-center justify-center mb-3 border border-white/90">
+                <div className="relative h-9 w-44">
+                  <Image
+                    src="/branding/logo.png"
+                    alt="NÓMADAS"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <p className="text-xs text-zinc-400 max-w-sm">
                 NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL.  
