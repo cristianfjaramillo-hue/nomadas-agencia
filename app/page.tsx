@@ -21,16 +21,31 @@ import {
   Zap,
   Target,
   Menu,
-  X
+  X,
+  Flame,
+  Send,
+  Loader2,
+  Lock
 } from 'lucide-react';
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
-  // Estado para el cotizador interactivo
-  const [selectedServices, setSelectedServices] = useState<string[]>(['Landing Page & Web']);
-  const [businessName, setBusinessName] = useState('');
+  // Estados para el Formulario de Calificación y Scoring
+  const [formData, setFormData] = useState({
+    name: '',
+    business_name: '',
+    whatsapp: '',
+    email: '',
+    services: ['Landing Page & Web'],
+    urgency: 'esta_semana' as 'esta_semana' | 'este_mes' | 'explorando',
+    budget_range: 'medio_alto' as 'alto' | 'medio_alto' | 'medio' | 'bajo',
+    business_type: 'empresa_activa' as 'empresa_activa' | 'emprendimiento',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [scoredLeadResult, setScoredLeadResult] = useState<any>(null);
 
   const servicesList = [
     { id: 'Branding & Identidad', label: '🎨 Branding e Identidad' },
@@ -41,17 +56,50 @@ export default function HomePage() {
   ];
 
   const toggleService = (id: string) => {
-    if (selectedServices.includes(id)) {
-      setSelectedServices(selectedServices.filter((s) => s !== id));
+    if (formData.services.includes(id)) {
+      setFormData({
+        ...formData,
+        services: formData.services.filter((s) => s !== id)
+      });
     } else {
-      setSelectedServices([...selectedServices, id]);
+      setFormData({
+        ...formData,
+        services: [...formData.services, id]
+      });
+    }
+  };
+
+  const handleSubmitLead = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.business_name.trim() || !formData.whatsapp.trim()) {
+      alert('Por favor completa tu nombre, el nombre de tu negocio y tu WhatsApp.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setScoredLeadResult(data.lead);
+        setSubmitSuccess(true);
+      } else {
+        alert(data.error || 'Error al enviar la solicitud.');
+      }
+    } catch (err: any) {
+      alert('Error de conexión: ' + err.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const getWhatsAppUrl = () => {
     const phone = '593962577613'; // Número oficial de Nómadas (0962577613)
-    const servicesText = selectedServices.length > 0 ? selectedServices.join(', ') : 'Servicios generales';
-    const businessText = businessName ? ` para mi negocio "${businessName}"` : '';
+    const servicesText = formData.services.length > 0 ? formData.services.join(', ') : 'Servicios generales';
+    const businessText = formData.business_name ? ` para mi negocio "${formData.business_name}"` : '';
     const message = encodeURIComponent(
       `¡Hola Nómadas! 👋 Me gustaría cotizar ${servicesText}${businessText}. ¿Podrían brindarme información y asesoría?`
     );
@@ -478,77 +526,282 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ----------------- COTIZADOR INTERACTIVO ----------------- */}
+      {/* ----------------- FORMULARIO DE CALIFICACIÓN & SCORING ----------------- */}
       <section id="cotizador" className="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-b from-[#1B1B22] to-[#141418] border-2 border-zinc-700/80 rounded-3xl p-8 sm:p-12 orange-border-glow">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E25822]/20 text-xs font-bold text-[#FF7038] mb-3">
-              <Zap className="w-3.5 h-3.5" />
-              <span>Cotizador Rápido</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white">
-              Diseña tu plan personalizado en 30 segundos
-            </h2>
-            <p className="mt-3 text-zinc-400 text-sm sm:text-base">
-              Selecciona los servicios que necesitas para tu negocio y recibe una propuesta directa por WhatsApp:
-            </p>
-          </div>
+          {submitSuccess ? (
+            <div className="text-center py-8 space-y-6">
+              <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/30">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black text-white">
+                ¡Diagnóstico Comercial Enviado con Éxito!
+              </h2>
 
-          <div className="space-y-6">
-            <div>
-              <label className="block text-sm font-semibold text-zinc-300 mb-3">
-                1. ¿Qué soluciones necesitas para tu negocio? (Selecciona una o más):
-              </label>
-              <div className="flex flex-wrap gap-2.5 sm:gap-3">
-                {servicesList.map((svc) => {
-                  const isSelected = selectedServices.includes(svc.id);
-                  return (
-                    <button
-                      key={svc.id}
-                      type="button"
-                      onClick={() => toggleService(svc.id)}
-                      className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                        isSelected
-                          ? 'bg-[#E25822] text-white shadow-md font-semibold'
-                          : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
-                      }`}
-                    >
-                      {svc.label}
-                    </button>
-                  );
-                })}
+              {scoredLeadResult?.temperature === 'HOT' ? (
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E25822] text-white font-extrabold text-sm sm:text-base shadow-xl animate-pulse">
+                  <Flame className="w-5 h-5" />
+                  <span>🔥 Prioridad Alta Asignada (Calificación: {scoredLeadResult.score}/100)</span>
+                </div>
+              ) : scoredLeadResult?.temperature === 'WARM' ? (
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold text-sm sm:text-base">
+                  <Zap className="w-5 h-5" />
+                  <span>⚡ Oportunidad Calificada (Calificación: {scoredLeadResult?.score}/100)</span>
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold text-sm">
+                  <span>❄️ Solicitud Registrada ({scoredLeadResult?.score}/100)</span>
+                </div>
+              )}
+
+              <p className="text-zinc-300 text-base max-w-xl mx-auto leading-relaxed">
+                Gracias, <strong>{formData.name}</strong>. Hemos registrado a <strong>{formData.business_name}</strong> en nuestro sistema de atención. Tu estratega asignado revisará tus requerimientos y te contactará de inmediato.
+              </p>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#E25822] hover:bg-[#C94614] text-white font-bold text-base px-8 py-4 rounded-xl transition-all shadow-xl orange-glow"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Chatear ahora mismo por WhatsApp</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitSuccess(false);
+                    setFormData({
+                      name: '',
+                      business_name: '',
+                      whatsapp: '',
+                      email: '',
+                      services: ['Landing Page & Web'],
+                      urgency: 'esta_semana',
+                      budget_range: 'medio_alto',
+                      business_type: 'empresa_activa',
+                    });
+                  }}
+                  className="w-full sm:w-auto px-6 py-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-sm font-semibold rounded-xl border border-zinc-700 transition-colors"
+                >
+                  Calificar otro proyecto
+                </button>
               </div>
             </div>
+          ) : (
+            <form onSubmit={handleSubmitLead} className="space-y-8">
+              <div className="text-center max-w-2xl mx-auto">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E25822]/20 text-xs font-bold text-[#FF7038] mb-3">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>Diagnóstico y Calificación Comercial</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black text-white">
+                  Cotiza y califica tu proyecto en 1 minuto
+                </h2>
+                <p className="mt-3 text-zinc-400 text-sm sm:text-base">
+                  Completa este breve formulario. Nuestro sistema clasificará la prioridad de tu solicitud para que un estratega comercial se contacte contigo de inmediato.
+                </p>
+              </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-zinc-300 mb-2">
-                2. ¿Cómo se llama tu empresa o negocio? (Opcional):
-              </label>
-              <input
-                type="text"
-                placeholder="Ej. Hostería Amazonía, Café El Puyo, Clínica..."
-                value={businessName}
-                onChange={(e) => setBusinessName(e.target.value)}
-                className="w-full px-4 py-3.5 bg-zinc-900 border border-zinc-700 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-[#E25822] transition-colors"
-              />
-            </div>
+              {/* Paso 1: Datos de Contacto */}
+              <div className="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 space-y-4">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-[#E25822] text-white text-xs flex items-center justify-center font-bold">1</span>
+                  <span>Datos de Contacto</span>
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Tu Nombre y Apellido *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ej. Carlos Mendoza"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-xl text-white text-sm placeholder-zinc-500 focus:outline-none focus:border-[#E25822]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Nombre de tu Negocio o Empresa *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Ej. Hostería El Mirador"
+                      value={formData.business_name}
+                      onChange={(e) => setFormData({ ...formData, business_name: e.target.value })}
+                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-xl text-white text-sm placeholder-zinc-500 focus:outline-none focus:border-[#E25822]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Teléfono / WhatsApp de Contacto *</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Ej. 0962577613"
+                      value={formData.whatsapp}
+                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
+                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-xl text-white text-sm placeholder-zinc-500 focus:outline-none focus:border-[#E25822]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-300 mb-1.5">Correo Electrónico (Opcional)</label>
+                    <input
+                      type="email"
+                      placeholder="correo@ejemplo.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-xl text-white text-sm placeholder-zinc-500 focus:outline-none focus:border-[#E25822]"
+                    />
+                  </div>
+                </div>
+              </div>
 
-            <div className="pt-4 border-t border-zinc-800">
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 bg-[#E25822] hover:bg-[#C94614] text-white font-bold text-base sm:text-lg py-4 rounded-xl transition-all duration-300 orange-glow shadow-xl hover:scale-[1.01]"
-              >
-                <MessageCircle className="w-5 h-5" />
-                <span>Generar y Enviar Cotización por WhatsApp</span>
-              </a>
-              <p className="text-center text-xs text-zinc-500 mt-3 flex items-center justify-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Respuesta directa y personalizada por el equipo de Nómadas en Puyo</span>
-              </p>
-            </div>
-          </div>
+              {/* Paso 2: Servicios */}
+              <div className="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 space-y-3">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-[#E25822] text-white text-xs flex items-center justify-center font-bold">2</span>
+                  <span>Soluciones que Necesitas (Selecciona una o más)</span>
+                </h3>
+                <div className="flex flex-wrap gap-2.5">
+                  {servicesList.map((svc) => {
+                    const isSelected = formData.services.includes(svc.id);
+                    return (
+                      <button
+                        key={svc.id}
+                        type="button"
+                        onClick={() => toggleService(svc.id)}
+                        className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                          isSelected
+                            ? 'bg-[#E25822] text-white shadow-md'
+                            : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                        }`}
+                      >
+                        {svc.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Paso 3: Preguntas de Scoring Calificador */}
+              <div className="bg-zinc-900/60 p-6 rounded-2xl border border-zinc-800 space-y-5">
+                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-[#E25822] text-white text-xs flex items-center justify-center font-bold">3</span>
+                  <span>Preguntas de Calificación y Prioridad</span>
+                </h3>
+
+                {/* Urgencia */}
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-300 mb-2">
+                    ¿Con qué urgencia necesitas iniciar el proyecto?
+                  </label>
+                  <div className="grid sm:grid-cols-3 gap-3">
+                    {[
+                      { val: 'esta_semana', label: '⚡ Esta misma semana', desc: 'Prioridad máxima de arranque' },
+                      { val: 'este_mes', label: '📅 En 2 a 4 semanas', desc: 'Plazo planificado' },
+                      { val: 'explorando', label: '🔍 Solo cotizando', desc: 'Sin fecha definida aún' },
+                    ].map((item) => (
+                      <button
+                        key={item.val}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, urgency: item.val as any })}
+                        className={`p-3 rounded-xl text-left border transition-all ${
+                          formData.urgency === item.val
+                            ? 'bg-[#E25822]/15 border-[#E25822] text-white'
+                            : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                        }`}
+                      >
+                        <div className="text-xs font-bold text-zinc-200">{item.label}</div>
+                        <div className="text-[10px] text-zinc-500 mt-0.5">{item.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Presupuesto */}
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-300 mb-2">
+                    ¿Cuál es tu rango de presupuesto estimado de inversión?
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    {[
+                      { val: 'alto', label: '> $800 USD', desc: 'Crecimiento agresivo' },
+                      { val: 'medio_alto', label: '$400 - $800 USD', desc: 'Inversión estándar' },
+                      { val: 'medio', label: '$200 - $400 USD', desc: 'Inversión inicial' },
+                      { val: 'bajo', label: '< $200 USD', desc: 'Bajo presupuesto' },
+                    ].map((item) => (
+                      <button
+                        key={item.val}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, budget_range: item.val as any })}
+                        className={`p-3 rounded-xl text-left border transition-all ${
+                          formData.budget_range === item.val
+                            ? 'bg-[#E25822]/15 border-[#E25822] text-white'
+                            : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                        }`}
+                      >
+                        <div className="text-xs font-bold text-zinc-200">{item.label}</div>
+                        <div className="text-[10px] text-zinc-500 mt-0.5">{item.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Madurez del negocio */}
+                <div>
+                  <label className="block text-xs font-semibold text-zinc-300 mb-2">
+                    ¿Cuál es el estado actual de tu negocio?
+                  </label>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {[
+                      { val: 'empresa_activa', label: '🏢 Empresa con Local o Ventas Activas', desc: 'Negocio funcionando con clientes habituales' },
+                      { val: 'emprendimiento', label: '🚀 Emprendimiento Nuevo', desc: 'Idea o proyecto en fase de lanzamiento' },
+                    ].map((item) => (
+                      <button
+                        key={item.val}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, business_type: item.val as any })}
+                        className={`p-3 rounded-xl text-left border transition-all ${
+                          formData.business_type === item.val
+                            ? 'bg-[#E25822]/15 border-[#E25822] text-white'
+                            : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                        }`}
+                      >
+                        <div className="text-xs font-bold text-zinc-200">{item.label}</div>
+                        <div className="text-[10px] text-zinc-500 mt-0.5">{item.desc}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Botón de Enviar */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-3 bg-[#E25822] hover:bg-[#C94614] text-white font-extrabold text-base sm:text-lg py-4 rounded-xl transition-all duration-300 orange-glow shadow-xl hover:scale-[1.01] disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>Calificando y registrando solicitud...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      <span>Enviar y Recibir Diagnóstico Comercial Prioritario</span>
+                    </>
+                  )}
+                </button>
+                <p className="text-center text-xs text-zinc-500 mt-3 flex items-center justify-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <span>Tus datos son 100% confidenciales. Asignación inmediata a un estratega en Puyo.</span>
+                </p>
+              </div>
+            </form>
+          )}
         </div>
       </section>
 
@@ -719,7 +972,10 @@ export default function HomePage() {
 
           <div className="mt-12 pt-8 border-t border-zinc-300 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 font-medium gap-4">
             <p>© {new Date().getFullYear()} Nómadas Agencia de Diseño y Marketing Digital. Todos los derechos reservados.</p>
-            <p>Hecho con ❤️ y tecnología de alta velocidad en Ecuador.</p>
+            <div className="flex items-center gap-4">
+              <span>Hecho con ❤️ en Pastaza, Ecuador.</span>
+              <a href="/admin" className="text-zinc-400 hover:text-zinc-700 hover:underline transition-colors">Panel Ventas</a>
+            </div>
           </div>
         </div>
       </footer>
