@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nomadas-orange: #E25822;
+  --color-nomadas-orange-dark: #C94614;
+  --color-nomadas-orange-light: #FF7038;
+  --color-nomadas-dark: #0F0F11;
+  --color-nomadas-card: #17171C;
+  --color-nomadas-border: #272730;
+  --color-nomadas-muted: #9E9EA7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  body {
+    background-color: #0F0F11;
+    color: #F4F4F6;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom glowing effects */
+.orange-glow {
+  box-shadow: 0 0 40px -10px rgba(226, 88, 34, 0.35);
+}
+
+.orange-border-glow {
+  box-shadow: 0 0 15px -3px rgba(226, 88, 34, 0.25);
+}

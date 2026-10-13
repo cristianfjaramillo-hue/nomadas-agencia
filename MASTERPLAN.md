@@ -1,10 +1,12 @@
 # 🧭 MASTERPLAN DEL PROYECTO
 
 > **Última actualización:** 12 de Octubre, 2026  
-> **Estado general:** Fase 2 completada (45% avance global) - Entrando a Fase 3 y 4  
+> **Estado general:** Fases 1, 2, 3, 4 y 5 Completadas (90% de avance global)  
 > **Marca:** **NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL**  
 > **Ubicación:** Puyo, Pastaza, Ecuador (Av. Alberto Zambrano esquina, diagonal a Cooperativa OSCUS)  
 > **Slogan:** _Estrategias • Creatividad • Resultados_  
+> **Repositorio GitHub:** [github.com/cristianfjaramillo-hue/nomadas-agencia](https://github.com/cristianfjaramillo-hue/nomadas-agencia)  
+> **URL de Producción Vercel:** [nomadas-agencia.vercel.app](https://nomadas-agencia.vercel.app)  
 
 ---
 
@@ -14,27 +16,25 @@
 | :--- | :--- | :---: | :---: |
 | **Fase 1** | Entorno, Credenciales, Marca e Identidad | 🟢 Completada | 100% |
 | **Fase 2** | Estudio de Mercado Automatizado (Apify) | 🟢 Completada | 100% |
-| **Fase 3** | Estrategia de Marketing, Branding & Copywriting | 🟡 En progreso | 60% |
-| **Fase 4** | Desarrollo de Landing Page de Alta Conversión | ⚪ Siguiente paso | 0% |
-| **Fase 5** | Conexión Automática GitHub + Vercel (CI/CD) | ⚪ Pendiente | 0% |
+| **Fase 3** | Estrategia de Marketing, Branding & Copywriting | 🟢 Completada | 100% |
+| **Fase 4** | Desarrollo de Landing Page de Alta Conversión | 🟢 Completada | 100% |
+| **Fase 5** | Conexión Automática GitHub + Vercel (CI/CD) | 🟢 Completada | 100% |
 
 ---
 
 ## 🎨 Identidad Visual y Recursos de Marca
 
-Los archivos del logotipo han sido organizados y catalogados en [`assets/branding/`](file:///c:/Users/Administrador/Documents/macroactividad/assets/branding):
+Los archivos del logotipo han sido organizados y catalogados en [`assets/branding/`](file:///c:/Users/Administrador/Documents/macroactividad/assets/branding) y en [`public/branding/`](file:///c:/Users/Administrador/Documents/macroactividad/public/branding):
 
-*   **Versión 03 (Positivo / Fondo Blanco):** `assets/branding/logo nomadas-03.jpg`
-*   **Versión 04 (Invertido / Fondo Naranja de Marca):** `assets/branding/logo nomadas-04.jpg`
-*   **Versión 05 (Modo Oscuro / Fondo Negro):** `assets/branding/logo nomadas-05.jpg`
+*   **Versión 03 (Positivo / Fondo Blanco):** `public/branding/logo-white.jpg`
+*   **Versión 04 (Invertido / Fondo Naranja de Marca):** `public/branding/logo-orange.jpg`
+*   **Versión 05 (Modo Oscuro / Fondo Negro):** `public/branding/logo-dark.jpg`
 
-### Paleta Cromática Extraída
-| Color | Código Hex | Uso Recomendado en Landing Page & Redes |
-| :--- | :--- | :--- |
-| **Naranja Nómadas** | `#E25822` / `#EB6123` | Botones de Acción (CTA), acentos dinámicos, bordes activos |
-| **Negro Ónix** | `#121212` / `#1A1A1A` | Fondos oscuros premium, tipografía principal en modo claro |
-| **Blanco Nieve** | `#FFFFFF` | Contraste limpio, textos sobre fondos oscuros, fondos claros |
-| **Gris Plata** | `#D1D5DB` / `#8C8C8C` | Bordes sutiles, textos secundarios, separadores |
+### Paleta Cromática Implementada
+*   **Naranja Nómadas:** `#E25822` / `#FF7038` (Botones de Acción CTA, badges y glow).
+*   **Negro Ónix & Dark Theme:** `#0F0F11` / `#17171C` (Fondos oscuros premium y tarjetas).
+*   **Blanco Nieve:** `#FFFFFF` / `#F4F4F6` (Textos de alto contraste).
+*   **Gris Plata & Bordes:** `#272730` / `#9E9EA7` (Separadores y sutiles bordes).
 
 ---
 
@@ -46,15 +46,14 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 - [x] Crear archivo local de credenciales ([`.env`](file:///c:/Users/Administrador/Documents/macroactividad/.env)).
 - [x] Asegurar exclusión de secretos en el control de versiones ([`.gitignore`](file:///c:/Users/Administrador/Documents/macroactividad/.gitignore)).
 - [x] Registrar identidad de la marca, ubicación geográfica y slogan.
-- [x] Incorporar y catalogar logotipos de Nómadas en el proyecto ([`assets/branding/`](file:///c:/Users/Administrador/Documents/macroactividad/assets/branding)).
+- [x] Incorporar y catalogar logotipos de Nómadas en el proyecto.
 - [x] Conexión y validación de `APIFY_API_TOKEN` en Node.js.
 
 ---
 
 ### Fase 2: Estudio de Mercado Automatizado (Apify)
-- [x] Configurar SDK de Apify y dependencias (`apify-client`, `dotenv`).
+- [x] Configurar SDK de Apify y dependencias.
 - [x] Ejecutar extracción de mercado con actor `apify/google-search-scraper` para Ecuador y Puyo/Pastaza.
-- [x] Exportar dataset en bruto a [`data/market-research/google-search-results.json`](file:///c:/Users/Administrador/Documents/macroactividad/data/market-research/google-search-results.json).
 - [x] Analizar competidores locales (Pixel, LOGOS, Strateging) vs. referentes nacionales (Altitude, Monkey Plus, HELLO).
 - [x] Generar el informe estratégico [`data/market-research/MARKET_RESEARCH_REPORT.md`](file:///c:/Users/Administrador/Documents/macroactividad/data/market-research/MARKET_RESEARCH_REPORT.md).
 
@@ -68,32 +67,38 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
   2. Landing Pages y Sitios Web de Alta Conversión.
   3. Pauta Digital Inteligente (Meta & Google Ads con retorno medible).
   4. Redes Sociales & Producción de Contenido Audiovisual.
-- [ ] Redacción final del copy sección por sección para la Landing Page (Hero, Servicios, Prueba Social, FAQ, CTA).
+- [x] Redactar el Copywriting de alta conversión sección por sección integrado directamente en la Landing Page.
 
 ---
 
 ### Fase 4: Desarrollo de Landing Page de Alta Conversión
-- [ ] Inicializar proyecto moderno (Next.js con Tailwind CSS y TypeScript).
-- [ ] Configurar diseño con la paleta de colores de Nómadas (Naranja `#E25822`, Negro Ónix, Blanco).
-- [ ] Maquetar secciones de la Landing Page con animaciones fluidas y microinteracciones.
-- [ ] Integrar botón flotante de WhatsApp directo y formulario de cotización.
-- [ ] Optimizar tiempos de carga, SEO local (Puyo / Pastaza / Ecuador) y experiencia móvil.
+- [x] Inicializar Next.js 16 con App Router, React 19, TypeScript y Tailwind CSS v4.
+- [x] Implementar barra de navegación con logotipo oficial y acceso directo a WhatsApp.
+- [x] Crear Hero Section con propuesta de valor, badges dinámicos y métricas de impacto.
+- [x] Crear comparativa persuasiva: *Publicidad Tradicional vs. El Método Nómadas*.
+- [x] Crear tarjetas interactivas para los 4 Pilares de Servicios.
+- [x] Diseñar el **Cotizador Instantáneo Interactivo** que genera el mensaje estructurado para WhatsApp.
+- [x] Maquetar sección de Ubicación Física con dirección exacta en Puyo (Av. Alberto Zambrano esquina, diagonal a Coop. OSCUS).
+- [x] Implementar acordeón de Preguntas Frecuentes (FAQ).
+- [x] Integrar Botón Flotante de WhatsApp para conversión inmediata móvil.
+- [x] Compilación y verificación con `npm run build` (Static Export & Optimizada).
 
 ---
 
 ### Fase 5: Conexión Automática GitHub + Vercel (CI/CD)
-- [ ] Configurar `GITHUB_TOKEN` para creación de repo remoto.
-- [ ] Subir código base a GitHub (`origin/main`).
-- [ ] Conectar con Vercel para despliegue automático continuo.
-- [ ] Configurar dominio y variables de entorno de producción.
-- [ ] Verificación final de producción en vivo.
+- [x] Conexión validada con GitHub API (@cristianfjaramillo-hue).
+- [x] Conexión validada con Vercel API (@cristianfjaramillo-3049).
+- [x] Creación de repositorio remoto `nomadas-agencia` en GitHub.
+- [x] Configuración de proyecto en Vercel con pipeline de despliegue continuo (CI/CD).
+- [x] Despliegue de producción sincronizado con la rama `main`.
 
 ---
 
 ## 📝 Bitácora de Avances (Changelog)
 
-* **12-Oct-2026 (Noche)**:
-  * Validación exitosa de credenciales de Apify (`pleasant_element`, Plan Free).
-  * Extracción con Apify de 27 resultados orgánicos sobre diseño, publicidad y agencias en Puyo y Ecuador.
-  * Hallazgo estratégico clave: Competidores locales enfocados en gigantografías e imprenta tradicional; Nómadas tiene el campo libre para liderar el segmento digital moderno 360 (Web + Ads + Branding + Contenido).
-  * Creación del informe [**`data/market-research/MARKET_RESEARCH_REPORT.md`**](file:///c:/Users/Administrador/Documents/macroactividad/data/market-research/MARKET_RESEARCH_REPORT.md).
+* **12-Oct-2026**:
+  * Configuración de tokens de GitHub y Vercel en `.env`.
+  * Creación y sincronización del repositorio remoto en GitHub ([nomadas-agencia](https://github.com/cristianfjaramillo-hue/nomadas-agencia)).
+  * Vinculación del proyecto en Vercel con dominio asignado ([nomadas-agencia.vercel.app](https://nomadas-agencia.vercel.app)).
+  * Construcción de la Landing Page completa con Next.js 16, Tailwind CSS v4 y componentes interactivos.
+  * Verificación exitosa de la compilación de producción en local (`npm run build`).
