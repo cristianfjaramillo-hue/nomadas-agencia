@@ -207,7 +207,7 @@ export default function AdminPage() {
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#E25822] via-[#FF7038] to-orange-400" />
 
           <div className="text-center mb-8">
-            <div className="relative h-12 w-52 mx-auto mb-4">
+            <div className="relative h-14 w-64 mx-auto mb-5">
               <Image
                 src="/branding/logo.png"
                 alt="NÓMADAS"
