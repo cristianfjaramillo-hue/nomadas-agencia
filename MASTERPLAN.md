@@ -19,6 +19,7 @@
 | **Fase 3** | Estrategia de Marketing, Branding & Copywriting | 🟢 Completada | 100% |
 | **Fase 4** | Desarrollo de Landing Page de Alta Conversión | 🟢 Completada | 100% |
 | **Fase 5** | Conexión Automática GitHub + Vercel (CI/CD) | 🟢 Completada | 100% |
+| **Fase 6** | Calificación, Scoring de Leads & CRM Panel Admin | 🟢 Completada | 100% |
 
 ---
 
@@ -91,6 +92,17 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 - [x] Creación de repositorio remoto `nomadas-agencia` en GitHub.
 - [x] Configuración de proyecto en Vercel con pipeline de despliegue continuo (CI/CD).
 - [x] Despliegue de producción sincronizado con la rama `main`.
+
+### Fase 6: Calificación, Scoring de Leads & CRM Panel Admin (Supabase)
+- [x] Instalación e inicialización del cliente de `@supabase/supabase-js` ([`lib/supabase.ts`](file:///c:/Users/Administrador/Documents/macroactividad/lib/supabase.ts)).
+- [x] Motor matemático de Lead Scoring de 0 a 100 puntos y clasificación de temperatura ([`lib/scoring.ts`](file:///c:/Users/Administrador/Documents/macroactividad/lib/scoring.ts)):
+  - 🔥 **HOT (≥70 pts)**: Contacto prioritario en menos de 15 minutos.
+  - ⚡ **WARM (40-69 pts)**: Contacto en el transcurso del día.
+  - ❄️ **COLD (<40 pts)**: Nutrición y seguimiento estándar.
+- [x] Script de migración SQL con RLS e índices optimizados ([`supabase/schema.sql`](file:///c:/Users/Administrador/Documents/macroactividad/supabase/schema.sql)).
+- [x] API Routes para ingesta (`POST /api/leads`), lectura ordenada por score (`GET /api/leads`) y actualización de estado comercial y notas (`PATCH /api/leads/[id]`).
+- [x] Formulario interactivo de diagnóstico comercial en la Landing Page con cálculo de scoring en tiempo real.
+- [x] Dashboard administrativo protegido con contraseña ([`/admin`](https://nomadas-agencia.vercel.app/admin)) con métricas en vivo, filtros de temperatura, modificación de estado (`Pendiente`, `Contactado`, `En Negociación`, `Cerrado Ganado`, `Descartado`), notas de vendedor y botón de WhatsApp con mensaje personalizado inmediato.
 
 ---
 
