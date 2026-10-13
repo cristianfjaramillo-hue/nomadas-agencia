@@ -87,16 +87,14 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#EFEFF2]/95 border-b border-zinc-300/80 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm border border-zinc-200 flex items-center justify-center">
-              <div className="relative h-9 w-44 sm:w-52">
-                <Image
-                  src="/branding/logo.png"
-                  alt="NÓMADAS Agencia de Diseño y Marketing Digital"
-                  fill
-                  priority
-                  className="object-contain"
-                />
-              </div>
+            <div className="relative h-11 w-48 sm:w-60">
+              <Image
+                src="/branding/logo.png"
+                alt="NÓMADAS Agencia de Diseño y Marketing Digital"
+                fill
+                priority
+                className="object-contain object-left"
+              />
             </div>
           </div>
 
@@ -694,15 +692,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div>
-              <div className="bg-white px-3.5 py-1.5 rounded-xl shadow-sm inline-flex items-center justify-center mb-3 border border-zinc-200">
-                <div className="relative h-9 w-44">
-                  <Image
-                    src="/branding/logo.png"
-                    alt="NÓMADAS"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+              <div className="relative h-11 w-48 mb-3">
+                <Image
+                  src="/branding/logo.png"
+                  alt="NÓMADAS"
+                  fill
+                  className="object-contain object-left"
+                />
               </div>
               <p className="text-xs text-zinc-600 max-w-sm font-medium leading-relaxed">
                 NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL.  
