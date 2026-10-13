@@ -216,8 +216,8 @@ export default function AdminPage() {
                 className="object-contain"
               />
             </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E25822]/10 border border-[#E25822]/30 text-xs font-bold text-[#FF7038] mb-2">
-              <Lock className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EFEFF2] border border-zinc-300 text-xs font-bold text-zinc-800 mb-2">
+              <Lock className="w-3.5 h-3.5 text-zinc-700" />
               <span>Panel Comercial Exclusivo</span>
             </div>
             <h1 className="text-2xl font-black text-white">Acceso a Prospectos</h1>
@@ -253,14 +253,14 @@ export default function AdminPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-[#E25822] hover:bg-[#C94614] text-white font-bold py-3.5 rounded-xl transition-all shadow-lg orange-glow flex items-center justify-center gap-2 text-sm disabled:opacity-50"
+              className="w-full bg-[#EFEFF2] hover:bg-white text-zinc-900 font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm border border-zinc-300 disabled:opacity-50"
             >
               {isLoading ? (
                 <span>Verificando...</span>
               ) : (
                 <>
-                  <span>Ingresar al Panel</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <span>Acceso a Prospectos</span>
+                  <ChevronRight className="w-4 h-4 text-zinc-700" />
                 </>
               )}
             </button>
