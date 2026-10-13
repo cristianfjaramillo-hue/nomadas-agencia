@@ -49,7 +49,7 @@ export default function HomePage() {
   };
 
   const getWhatsAppUrl = () => {
-    const phone = '593987654321'; // Número de contacto oficial
+    const phone = '593962577613'; // Número oficial de Nómadas (0962577613)
     const servicesText = selectedServices.length > 0 ? selectedServices.join(', ') : 'Servicios generales';
     const businessText = businessName ? ` para mi negocio "${businessName}"` : '';
     const message = encodeURIComponent(
@@ -590,6 +590,24 @@ export default function HomePage() {
                     <h3 className="font-bold text-white text-base">Horario de Atención:</h3>
                     <p className="text-sm text-zinc-300">Lunes a Viernes: 08:30 - 18:00</p>
                     <p className="text-xs text-zinc-500 mt-1">Sábados: Previa cita y coordinación</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+                  <div className="p-3 bg-[#E25822]/10 text-[#E25822] rounded-lg">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-base">Línea Directa / WhatsApp:</h3>
+                    <a
+                      href={getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-[#FF7038] hover:underline"
+                    >
+                      +593 96 257 7613 (096 257 7613)
+                    </a>
+                    <p className="text-xs text-zinc-500 mt-1">Atención rápida y asesoría comercial</p>
                   </div>
                 </div>
               </div>
