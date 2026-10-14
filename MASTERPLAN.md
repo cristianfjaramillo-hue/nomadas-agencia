@@ -108,6 +108,7 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 - [x] Formulario interactivo de diagnóstico comercial en la Landing Page con cálculo de scoring en tiempo real.
 - [x] Dashboard administrativo protegido con contraseña ([`/admin`](https://nomadas-agencia.vercel.app/admin)) con métricas en vivo, filtros de temperatura, modificación de estado (`Pendiente`, `Contactado`, `En Negociación`, `Cerrado Ganado`, `Descartado`), notas de vendedor y botón de WhatsApp con mensaje personalizado inmediato.
 - [x] **Generador de Reportes PDF Oficiales (`jspdf` + `jspdf-autotable`)**:
+  - Logotipo oficial de Nómadas con transparencia incrustado en alta definición en la cabecera del documento.
   - Botón de descarga en la barra superior, en el banner de bienvenida y en los filtros de búsqueda.
   - Formato apaisado (Landscape A4) con membrete institucional de Nómadas Agencia, fecha y hora de emisión, métricas y desglose.
   - Tabla con las 5 columnas requeridas: **Nombre & Negocio**, **Correo**, **Teléfono**, **Temperatura (Score)** y **Resumen de Estado**.
