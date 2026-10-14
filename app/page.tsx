@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import {
   Sparkles,
@@ -25,7 +25,11 @@ import {
   Flame,
   Send,
   Loader2,
-  Lock
+  Lock,
+  Volume2,
+  VolumeX,
+  Play,
+  Pause
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -46,6 +50,30 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [scoredLeadResult, setScoredLeadResult] = useState<any>(null);
+
+  // Control del Video en Bucle
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+
+  const toggleVideoMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isVideoMuted;
+      setIsVideoMuted(!isVideoMuted);
+    }
+  };
+
+  const toggleVideoPlay = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+        setIsVideoPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsVideoPlaying(true);
+      }
+    }
+  };
 
   const servicesList = [
     { id: 'Branding & Identidad', label: '🎨 Branding e Identidad' },
@@ -228,9 +256,25 @@ export default function HomePage() {
 
       {/* ----------------- HERO SECTION ----------------- */}
       <section className="relative pt-16 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
+        {/* Video de Fondo en Bucle */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover opacity-20 filter brightness-90 contrast-125"
+          >
+            <source src="/videos/hero-loop.mp4" type="video/mp4" />
+          </video>
+          {/* Degradado sobre el video para garantizar máxima legibilidad */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/75 to-[#0F0F11]" />
+        </div>
+
         {/* Background ambient radial gradients */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#E25822]/15 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute -top-10 left-10 w-72 h-72 bg-orange-600/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#E25822]/15 blur-[120px] rounded-full pointer-events-none z-0" />
+        <div className="absolute -top-10 left-10 w-72 h-72 bg-orange-600/10 blur-[100px] rounded-full pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           {/* Badge */}
@@ -271,6 +315,64 @@ export default function HomePage() {
             >
               <span>Ver Nuestros Servicios</span>
             </a>
+          </div>
+
+          {/* Tarjeta Cinematográfica del Video en Bucle */}
+          <div className="mt-14 relative max-w-4xl mx-auto rounded-3xl overflow-hidden border-2 border-zinc-700/80 bg-zinc-950 shadow-2xl orange-border-glow">
+            <div className="relative aspect-video w-full overflow-hidden bg-black">
+              <video
+                ref={videoRef}
+                autoPlay
+                loop
+                muted={isVideoMuted}
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              >
+                <source src="/videos/hero-loop.mp4" type="video/mp4" />
+              </video>
+
+              {/* Insignia del showreel en esquina superior */}
+              <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-zinc-700 text-[11px] font-bold text-white shadow-xl">
+                  <span className="w-2 h-2 rounded-full bg-[#E25822] animate-pulse" />
+                  NÓMADAS • Showreel Oficial
+                </span>
+              </div>
+
+              {/* Controles interactivos de reproducción y audio */}
+              <div className="absolute bottom-4 right-4 flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={toggleVideoPlay}
+                  className="p-2.5 rounded-full bg-black/75 hover:bg-black text-white backdrop-blur-md border border-zinc-700/80 transition-all hover:scale-105 shadow-xl"
+                  title={isVideoPlaying ? 'Pausar video' : 'Reproducir video'}
+                  aria-label={isVideoPlaying ? 'Pausar video' : 'Reproducir video'}
+                >
+                  {isVideoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={toggleVideoMute}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-black/75 hover:bg-black text-white backdrop-blur-md border border-zinc-700/80 transition-all hover:scale-105 shadow-xl text-xs font-semibold"
+                  title={isVideoMuted ? 'Activar sonido' : 'Silenciar sonido'}
+                  aria-label={isVideoMuted ? 'Activar sonido' : 'Silenciar sonido'}
+                >
+                  {isVideoMuted ? (
+                    <>
+                      <VolumeX className="w-4 h-4 text-zinc-400" />
+                      <span>Activar Audio</span>
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 className="w-4 h-4 text-[#FF7038]" />
+                      <span>Silenciar</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Trust badges / stats */}
