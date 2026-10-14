@@ -122,4 +122,9 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
   * Integración de Minimapa interactivo de Google Maps en la sección de sede física (`#ubicacion`).
   * Botón de navegación directa **"Cómo Llegar en Google Maps"** apuntando a `https://maps.app.goo.gl/kBrLLFJriD5r1Ewp8` para activación directa de la app móvil y navegador.
   * Botón dual de **"Agendar Cita Presencial por WhatsApp"**.
+  * **Nueva Sección Portafolio con Ruleta Interactiva 3-en-3 (`#portafolio`)**:
+    * Carrusel continuo animado mediante hover del ratón (desplazamiento y velocidad guiados por la posición del cursor, 0 clics requeridos).
+    * Visualización exacta de 3 proyectos simultáneos en desktop con proporciones responsive.
+    * 6 proyectos fotográficos de alta definición: Letrero 3D luminoso corpóreo, captura de pantalla de plataforma CRM y marketing digital, papelería corporativa premium con acabados en cobre, landing page de alta conversión, packaging de colección y producción audiovisual 4K.
+    * Modal de vista rápida y botón directo de cotización por WhatsApp prellenado para cada trabajo.
   * Sincronización y despliegue automático en Vercel.

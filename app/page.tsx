@@ -28,6 +28,7 @@ import {
   Lock,
   Navigation
 } from 'lucide-react';
+import PortfolioRoulette from '@/components/PortfolioRoulette';
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -177,8 +178,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-zinc-700">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-semibold text-zinc-700">
             <a href="#servicios" className="hover:text-[#E25822] transition-colors">Servicios</a>
+            <a href="#portafolio" className="hover:text-[#E25822] transition-colors">Portafolio</a>
             <a href="#diferencia" className="hover:text-[#E25822] transition-colors">El Método</a>
             <a href="#cotizador" className="hover:text-[#E25822] transition-colors">Cotizador</a>
             <a href="#ubicacion" className="hover:text-[#E25822] transition-colors">Ubicación</a>
@@ -215,6 +217,13 @@ export default function HomePage() {
               className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
             >
               Servicios
+            </a>
+            <a
+              href="#portafolio"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-zinc-800 hover:text-[#E25822] py-2 text-base font-semibold"
+            >
+              Portafolio
             </a>
             <a
               href="#diferencia"
@@ -505,6 +514,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ----------------- PORTAFOLIO / RULETA INTERACTIVA ----------------- */}
+      <PortfolioRoulette />
 
       {/* ----------------- EL MÉTODO NÓMADA ----------------- */}
       <section id="diferencia" className="py-20 bg-[#141418]/85 backdrop-blur-sm border-y border-zinc-800/80 relative z-10">
@@ -1044,6 +1056,7 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row items-center gap-6 text-sm font-semibold text-zinc-700">
               <a href="#servicios" className="hover:text-[#E25822] transition-colors">Servicios</a>
+              <a href="#portafolio" className="hover:text-[#E25822] transition-colors">Portafolio</a>
               <a href="#cotizador" className="hover:text-[#E25822] transition-colors">Cotizador</a>
               <a href="#ubicacion" className="hover:text-[#E25822] transition-colors">Ubicación</a>
               <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="text-[#E25822] hover:underline font-bold">
