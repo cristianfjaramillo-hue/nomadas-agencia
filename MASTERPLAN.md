@@ -129,4 +129,5 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
     * Modal de vista rápida y botón directo de cotización por WhatsApp prellenado para cada trabajo.
   * Depuración visual: Retiro del recuadro / badge superior *(Puyo • Pastaza • Cobertura Nacional en Ecuador)* en la cabecera Hero.
   * **Titular Hero Cinético Dinámico**: Efecto de transición suave (fade + slide + blur) con gradiente brillante en movimiento continuo (*text-shimmer*), cursor neón parpadeante y rotación periódica manteniendo como ancla central *"una marca imparable."*.
+  * Depuración visual: Eliminación del bloque de 4 recuadros de métricas fijas *(100% ROAS, 360°, < 1s, Local Puyo)* en la cabecera.
   * Sincronización y despliegue automático en Vercel.
