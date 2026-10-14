@@ -82,6 +82,10 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 - [x] Maquetar sección de Ubicación Física con dirección exacta en Puyo (Av. Alberto Zambrano esquina, diagonal a Coop. OSCUS).
 - [x] Implementar acordeón de Preguntas Frecuentes (FAQ).
 - [x] Integrar Botón Flotante de WhatsApp para conversión inmediata móvil.
+- [x] **Video en Bucle en la Sección Hero (Justo debajo del menú)**:
+  - Video nativo optimizado alojado en `/videos/hero-loop.mp4` (~3.8 MB) transmitido desde CDN.
+  - Fondo ambiental sutil en bucle con gradientes oscuros para conservar alta legibilidad.
+  - Tarjeta cinematográfica 16:9 con bordes redondeados, resplandor naranja Nómadas, insignia *Showreel Oficial*, y controles interactivos de Pausa/Play y Activar/Silenciar Audio.
 - [x] Compilación y verificación con `npm run build` (Static Export & Optimizada).
 
 ---
