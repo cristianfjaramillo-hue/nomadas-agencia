@@ -52,6 +52,27 @@ export default function HomePage() {
   // Posición de Scroll para Efecto Parallax en el Video de Fondo
   const [scrollY, setScrollY] = useState(0);
 
+  // Estados para el Titular Dinámico con Efecto de Transición
+  const dynamicWords = [
+    'una marca imparable.',
+    'una máquina de ventas.',
+    'un imán de clientes reales.',
+    'un referente líder en Ecuador.'
+  ];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentWordIndex((prev) => (prev + 1) % dynamicWords.length);
+        setIsFading(false);
+      }, 350);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, [dynamicWords.length]);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -273,11 +294,28 @@ export default function HomePage() {
         <div className="absolute -top-10 left-10 w-72 h-72 bg-orange-600/10 blur-[100px] rounded-full pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
-            Dejamos atrás la publicidad que no mide resultados.{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E25822] via-[#FF7038] to-orange-400">
-              Transformamos tu negocio en una marca imparable.
+          {/* Headline Dinámico con Transición y Shimmer */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.14]">
+            <span>Dejamos atrás la publicidad que </span>
+            <span className="relative inline-block text-zinc-300 font-bold group">
+              no mide resultados.
+              <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-red-500/80 via-[#E25822] to-amber-500 rounded-full animate-pulse" />
+            </span>{' '}
+            <span className="block mt-2 sm:mt-4">
+              Transformamos tu negocio en{' '}
+              <span className="inline-block relative">
+                <span
+                  key={currentWordIndex}
+                  className={`inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#E25822] via-[#FF7038] to-amber-300 text-shimmer drop-shadow-[0_0_35px_rgba(226,88,34,0.4)] transition-all duration-500 transform ${
+                    isFading
+                      ? 'opacity-0 translate-y-3 blur-sm scale-95'
+                      : 'opacity-100 translate-y-0 blur-0 scale-100'
+                  }`}
+                >
+                  {dynamicWords[currentWordIndex]}
+                </span>
+                <span className="inline-block w-1 sm:w-1.5 h-8 sm:h-12 lg:h-14 bg-[#FF7038] ml-1.5 align-middle cursor-blink rounded-full shadow-[0_0_12px_#E25822]" />
+              </span>
             </span>
           </h1>
 
