@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   Sparkles,
@@ -25,11 +25,7 @@ import {
   Flame,
   Send,
   Loader2,
-  Lock,
-  Volume2,
-  VolumeX,
-  Play,
-  Pause
+  Lock
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -51,29 +47,16 @@ export default function HomePage() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [scoredLeadResult, setScoredLeadResult] = useState<any>(null);
 
-  // Control del Video en Bucle
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoMuted, setIsVideoMuted] = useState(true);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  // Posición de Scroll para Efecto Parallax en el Video de Fondo
+  const [scrollY, setScrollY] = useState(0);
 
-  const toggleVideoMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isVideoMuted;
-      setIsVideoMuted(!isVideoMuted);
-    }
-  };
-
-  const toggleVideoPlay = () => {
-    if (videoRef.current) {
-      if (isVideoPlaying) {
-        videoRef.current.pause();
-        setIsVideoPlaying(false);
-      } else {
-        videoRef.current.play();
-        setIsVideoPlaying(true);
-      }
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const servicesList = [
     { id: 'Branding & Identidad', label: '🎨 Branding e Identidad' },
@@ -158,7 +141,26 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0F0F11] text-zinc-100 selection:bg-[#E25822] selection:text-white">
+    <div className="min-h-screen bg-[#0F0F11] text-zinc-100 selection:bg-[#E25822] selection:text-white relative">
+      {/* ----------------- VIDEO DE FONDO PERSISTENTE (SIGUE EL SCROLL DE LA PÁGINA) ----------------- */}
+      <div className="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover opacity-30 filter brightness-90 contrast-120 will-change-transform"
+          style={{
+            transform: `translateY(${Math.min(scrollY * 0.14, 240)}px) scale(1.12)`
+          }}
+        >
+          <source src="/videos/hero-loop.mp4" type="video/mp4" />
+        </video>
+        {/* Capa oscura sutil para que los textos, botones y tarjetas tengan legibilidad óptima */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/85 via-[#0F0F11]/75 to-[#0F0F11]/90" />
+      </div>
+
       {/* ----------------- NAVBAR (Gris Claro) ----------------- */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#EFEFF2]/95 border-b border-zinc-300/80 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -255,23 +257,7 @@ export default function HomePage() {
       </header>
 
       {/* ----------------- HERO SECTION ----------------- */}
-      <section className="relative pt-16 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
-        {/* Video de Fondo en Bucle */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover opacity-20 filter brightness-90 contrast-125"
-          >
-            <source src="/videos/hero-loop.mp4" type="video/mp4" />
-          </video>
-          {/* Degradado sobre el video para garantizar máxima legibilidad */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F11]/90 via-[#0F0F11]/75 to-[#0F0F11]" />
-        </div>
-
+      <section className="relative pt-16 pb-24 lg:pt-28 lg:pb-32 overflow-hidden z-10">
         {/* Background ambient radial gradients */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#E25822]/15 blur-[120px] rounded-full pointer-events-none z-0" />
         <div className="absolute -top-10 left-10 w-72 h-72 bg-orange-600/10 blur-[100px] rounded-full pointer-events-none z-0" />
@@ -317,64 +303,6 @@ export default function HomePage() {
             </a>
           </div>
 
-          {/* Tarjeta Cinematográfica del Video en Bucle */}
-          <div className="mt-14 relative max-w-4xl mx-auto rounded-3xl overflow-hidden border-2 border-zinc-700/80 bg-zinc-950 shadow-2xl orange-border-glow">
-            <div className="relative aspect-video w-full overflow-hidden bg-black">
-              <video
-                ref={videoRef}
-                autoPlay
-                loop
-                muted={isVideoMuted}
-                playsInline
-                preload="auto"
-                className="w-full h-full object-cover"
-              >
-                <source src="/videos/hero-loop.mp4" type="video/mp4" />
-              </video>
-
-              {/* Insignia del showreel en esquina superior */}
-              <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-zinc-700 text-[11px] font-bold text-white shadow-xl">
-                  <span className="w-2 h-2 rounded-full bg-[#E25822] animate-pulse" />
-                  NÓMADAS • Showreel Oficial
-                </span>
-              </div>
-
-              {/* Controles interactivos de reproducción y audio */}
-              <div className="absolute bottom-4 right-4 flex items-center gap-2.5">
-                <button
-                  type="button"
-                  onClick={toggleVideoPlay}
-                  className="p-2.5 rounded-full bg-black/75 hover:bg-black text-white backdrop-blur-md border border-zinc-700/80 transition-all hover:scale-105 shadow-xl"
-                  title={isVideoPlaying ? 'Pausar video' : 'Reproducir video'}
-                  aria-label={isVideoPlaying ? 'Pausar video' : 'Reproducir video'}
-                >
-                  {isVideoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={toggleVideoMute}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-black/75 hover:bg-black text-white backdrop-blur-md border border-zinc-700/80 transition-all hover:scale-105 shadow-xl text-xs font-semibold"
-                  title={isVideoMuted ? 'Activar sonido' : 'Silenciar sonido'}
-                  aria-label={isVideoMuted ? 'Activar sonido' : 'Silenciar sonido'}
-                >
-                  {isVideoMuted ? (
-                    <>
-                      <VolumeX className="w-4 h-4 text-zinc-400" />
-                      <span>Activar Audio</span>
-                    </>
-                  ) : (
-                    <>
-                      <Volume2 className="w-4 h-4 text-[#FF7038]" />
-                      <span>Silenciar</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-
           {/* Trust badges / stats */}
           <div className="mt-16 pt-12 border-t border-zinc-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
             <div className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800">
@@ -398,7 +326,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- PROBLEMA VS SOLUCIÓN ----------------- */}
-      <section className="py-20 bg-[#141418] border-y border-zinc-800/80 relative">
+      <section className="py-20 bg-[#141418]/85 backdrop-blur-sm border-y border-zinc-800/80 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs sm:text-sm font-bold tracking-widest text-[#E25822] uppercase">
@@ -472,7 +400,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- SERVICIOS PRINCIPALES ----------------- */}
-      <section id="servicios" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="servicios" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E25822]/10 border border-[#E25822]/30 text-xs font-semibold text-[#FF7038] mb-4">
             <Sparkles className="w-3.5 h-3.5" />
@@ -578,7 +506,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- EL MÉTODO NÓMADA ----------------- */}
-      <section id="diferencia" className="py-20 bg-[#141418] border-y border-zinc-800/80">
+      <section id="diferencia" className="py-20 bg-[#141418]/85 backdrop-blur-sm border-y border-zinc-800/80 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-xs sm:text-sm font-bold tracking-widest text-[#E25822] uppercase">
@@ -629,7 +557,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- FORMULARIO DE CALIFICACIÓN & SCORING ----------------- */}
-      <section id="cotizador" className="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="cotizador" className="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-gradient-to-b from-[#1B1B22] to-[#141418] border-2 border-zinc-700/80 rounded-3xl p-8 sm:p-12 orange-border-glow">
           {submitSuccess ? (
             <div className="text-center py-8 space-y-6">
@@ -908,7 +836,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- UBICACIÓN Y CONFIANZA ----------------- */}
-      <section id="ubicacion" className="py-20 bg-[#141418] border-t border-zinc-800/80">
+      <section id="ubicacion" className="py-20 bg-[#141418]/85 backdrop-blur-sm border-t border-zinc-800/80 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -999,7 +927,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- PREGUNTAS FRECUENTES (FAQ) ----------------- */}
-      <section id="faq" className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E25822]/10 border border-[#E25822]/30 text-xs font-semibold text-[#FF7038] mb-4">
             <HelpCircle className="w-3.5 h-3.5" />
@@ -1043,7 +971,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------- FOOTER (Gris Claro) ----------------- */}
-      <footer className="border-t border-zinc-300/80 bg-[#EFEFF2] py-14 text-zinc-800">
+      <footer className="border-t border-zinc-300/80 bg-[#EFEFF2] py-14 text-zinc-800 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div>
