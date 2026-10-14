@@ -273,12 +273,6 @@ export default function HomePage() {
         <div className="absolute -top-10 left-10 w-72 h-72 bg-orange-600/10 blur-[100px] rounded-full pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-zinc-700/80 text-xs sm:text-sm font-medium text-zinc-300 mb-8 shadow-sm">
-            <span className="flex h-2 w-2 rounded-full bg-[#E25822] animate-pulse" />
-            <span>Puyo • Pastaza • Cobertura Nacional en Ecuador</span>
-          </div>
-
           {/* Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
             Dejamos atrás la publicidad que no mide resultados.{' '}
