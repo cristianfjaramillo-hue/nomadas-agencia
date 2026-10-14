@@ -396,13 +396,11 @@ export default function PortfolioRoulette() {
                     </div>
 
                     <a
-                      href={`https://wa.me/593962577613?text=${encodeURIComponent(project.whatsappMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-between w-full text-xs font-semibold text-zinc-300 hover:text-[#FF7038] group-hover:text-white transition-colors py-1"
+                      href="#cotizador"
+                      className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-[#E25822] hover:bg-[#C94614] text-white font-bold text-xs sm:text-sm shadow-md transition-all duration-200 orange-glow hover:scale-[1.02] text-center"
                     >
-                      <span>Cotizar proyecto similar</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#E25822] group-hover:translate-x-1 transition-transform" />
+                      <span>Cotizar en Línea</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
@@ -484,13 +482,12 @@ export default function PortfolioRoulette() {
                   ¿Quieres un trabajo con este nivel de calidad para tu marca?
                 </span>
                 <a
-                  href={`https://wa.me/593962577613?text=${encodeURIComponent(activeProject.whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#E25822] hover:bg-[#C94614] text-white font-bold text-sm px-6 py-3 rounded-xl transition-all orange-glow"
+                  href="#cotizador"
+                  onClick={() => setActiveProject(null)}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#E25822] hover:bg-[#C94614] text-white font-bold text-sm px-6 py-3 rounded-xl transition-all orange-glow shadow-lg"
                 >
-                  <span>Cotizar Proyecto por WhatsApp</span>
-                  <ExternalLink className="w-4 h-4" />
+                  <span>Ir a la Pantalla de Cotizaciones</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
