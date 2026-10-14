@@ -128,4 +128,5 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
     * 6 proyectos fotográficos de alta definición: Letrero 3D luminoso corpóreo, captura de pantalla de plataforma CRM y marketing digital, papelería corporativa premium con acabados en cobre, landing page de alta conversión, packaging de colección y producción audiovisual 4K.
     * Modal de vista rápida y botón directo de cotización por WhatsApp prellenado para cada trabajo.
   * Depuración visual: Retiro del recuadro / badge superior *(Puyo • Pastaza • Cobertura Nacional en Ecuador)* en la cabecera Hero.
+  * **Titular Hero Cinético Dinámico**: Efecto de transición suave (fade + slide + blur) con gradiente brillante en movimiento continuo (*text-shimmer*), cursor neón parpadeante y rotación periódica manteniendo como ancla central *"una marca imparable."*.
   * Sincronización y despliegue automático en Vercel.
