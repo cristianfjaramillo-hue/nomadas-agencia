@@ -344,26 +344,6 @@ export default function HomePage() {
               <span>Ver Nuestros Servicios</span>
             </a>
           </div>
-
-          {/* Trust badges / stats */}
-          <div className="mt-16 pt-12 border-t border-zinc-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
-            <div className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#E25822]">100%</div>
-              <div className="text-xs sm:text-sm text-zinc-400 mt-1">Enfoque en Retorno (ROAS)</div>
-            </div>
-            <div className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white">360°</div>
-              <div className="text-xs sm:text-sm text-zinc-400 mt-1">Branding, Web y Pauta</div>
-            </div>
-            <div className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800">
-              <div className="text-2xl sm:text-3xl font-extrabold text-[#E25822]">&lt; 1s</div>
-              <div className="text-xs sm:text-sm text-zinc-400 mt-1">Velocidad de Carga Web</div>
-            </div>
-            <div className="p-4 rounded-xl bg-zinc-900/40 border border-zinc-800">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white">Local</div>
-              <div className="text-xs sm:text-sm text-zinc-400 mt-1">Av. Alberto Zambrano, Puyo</div>
-            </div>
-          </div>
         </div>
       </section>
 
