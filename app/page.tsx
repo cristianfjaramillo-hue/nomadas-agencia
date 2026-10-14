@@ -135,7 +135,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#EFEFF2]/95 border-b border-zinc-300/80 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="relative h-11 w-48 sm:w-60">
+            <div className="relative h-12 w-56 sm:w-64">
               <Image
                 src="/branding/logo.png"
                 alt="NÓMADAS Agencia de Diseño y Marketing Digital"
@@ -868,7 +868,7 @@ export default function HomePage() {
 
             {/* Tarjeta de visita / ambient */}
             <div className="relative rounded-3xl overflow-hidden border border-zinc-700 bg-gradient-to-tr from-[#1B1B22] to-zinc-900 p-8 sm:p-10 text-center">
-              <div className="bg-white rounded-2xl p-4 shadow-xl max-w-xs mx-auto mb-6 flex items-center justify-center border border-zinc-100">
+              <div className="bg-[#EFEFF2] rounded-2xl p-4 shadow-xl max-w-xs mx-auto mb-6 flex items-center justify-center border border-zinc-300">
                 <div className="relative h-14 w-60">
                   <Image
                     src="/branding/logo.png"
@@ -945,7 +945,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
             <div>
-              <div className="relative h-11 w-48 mb-3">
+              <div className="relative h-12 w-56 mb-3">
                 <Image
                   src="/branding/logo.png"
                   alt="NÓMADAS"
