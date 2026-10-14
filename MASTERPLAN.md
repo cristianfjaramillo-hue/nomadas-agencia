@@ -127,4 +127,5 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
     * Visualización exacta de 3 proyectos simultáneos en desktop con proporciones responsive.
     * 6 proyectos fotográficos de alta definición: Letrero 3D luminoso corpóreo, captura de pantalla de plataforma CRM y marketing digital, papelería corporativa premium con acabados en cobre, landing page de alta conversión, packaging de colección y producción audiovisual 4K.
     * Modal de vista rápida y botón directo de cotización por WhatsApp prellenado para cada trabajo.
+  * Depuración visual: Retiro del recuadro / badge superior *(Puyo • Pastaza • Cobertura Nacional en Ecuador)* en la cabecera Hero.
   * Sincronización y despliegue automático en Vercel.
