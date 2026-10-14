@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { NOMADAS_LOGO_BASE64 } from '@/lib/logoBase64';
 import {
   Flame,
   Zap,
@@ -232,43 +233,49 @@ export default function AdminPage() {
       doc.setFillColor(226, 88, 34); // #E25822
       doc.rect(0, 0, 297, 6, 'F');
 
-      // Título Institucional
+      // Logotipo Oficial de Nómadas con Transparencia
+      try {
+        doc.addImage(NOMADAS_LOGO_BASE64, 'PNG', 14, 9, 52, 12.3);
+      } catch (e) {
+        console.error('Error insertando logo en PDF:', e);
+      }
+
+      // Título Institucional junto al Logo
       doc.setFont('helvetica', 'bold');
-      doc.setFontSize(15);
+      doc.setFontSize(13);
       doc.setTextColor(23, 23, 28); // #17171C
-      doc.text('NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL', 14, 16);
+      doc.text('NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL', 70, 15);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(226, 88, 34);
+      doc.text('CONTROL Y GESTIÓN COMERCIAL: REPORTE DE PROSPECTOS CALIFICADOS', 70, 20.5);
 
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(9);
+      doc.setFontSize(8.5);
       doc.setTextColor(90, 90, 100);
       doc.text(
-        'Estrategias • Creatividad • Resultados | Av. Alberto Zambrano esquina, Puyo, Pastaza | WhatsApp: 0962577613',
-        14,
-        22
+        'Estrategias • Creatividad • Resultados | Av. Alberto Zambrano esquina, Puyo | WhatsApp: 0962577613',
+        70,
+        25.5
       );
-
-      // Subtítulo del reporte
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(11);
-      doc.setTextColor(226, 88, 34);
-      doc.text('CONTROL Y GESTIÓN COMERCIAL: REPORTE DE PROSPECTOS CALIFICADOS', 14, 29);
 
       // Resumen y metadatos a la derecha
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(8.5);
       doc.setTextColor(70, 70, 80);
-      doc.text(`Fecha de emisión: ${dateStr} - ${timeStr}`, 212, 16);
-      doc.text(`Registros en reporte: ${filteredLeads.length} de ${leads.length}`, 212, 21);
+      doc.text(`Fecha: ${dateStr} - ${timeStr}`, 215, 15);
+      doc.text(`Registros: ${filteredLeads.length} de ${leads.length}`, 215, 20);
       doc.text(
         `Calientes: ${hotLeads}  |  Tibios: ${warmLeads}  |  Fríos: ${coldLeads}`,
-        212,
-        26
+        215,
+        25
       );
 
-      // Línea divisoria
-      doc.setDrawColor(220, 220, 230);
-      doc.setLineWidth(0.5);
-      doc.line(14, 32, 283, 32);
+      // Línea divisoria decorativa
+      doc.setDrawColor(226, 88, 34);
+      doc.setLineWidth(0.6);
+      doc.line(14, 29.5, 283, 29.5);
 
       // Filas para la tabla
       const tableRows = filteredLeads.map((lead, index) => {
@@ -315,7 +322,7 @@ export default function AdminPage() {
       });
 
       autoTable(doc, {
-        startY: 35,
+        startY: 32.5,
         head: [['#', 'Nombre', 'Correo', 'Teléfono', 'Temperatura', 'Resumen de Estado']],
         body: tableRows,
         theme: 'striped',
