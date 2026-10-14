@@ -118,9 +118,8 @@ Los archivos del logotipo han sido organizados y catalogados en [`assets/brandin
 
 ## 📝 Bitácora de Avances (Changelog)
 
-* **12-Oct-2026**:
-  * Configuración de tokens de GitHub y Vercel en `.env`.
-  * Creación y sincronización del repositorio remoto en GitHub ([nomadas-agencia](https://github.com/cristianfjaramillo-hue/nomadas-agencia)).
-  * Vinculación del proyecto en Vercel con dominio asignado ([nomadas-agencia.vercel.app](https://nomadas-agencia.vercel.app)).
-  * Construcción de la Landing Page completa con Next.js 16, Tailwind CSS v4 y componentes interactivos.
-  * Verificación exitosa de la compilación de producción en local (`npm run build`).
+* **13-Oct-2026**:
+  * Integración de Minimapa interactivo de Google Maps en la sección de sede física (`#ubicacion`).
+  * Botón de navegación directa **"Cómo Llegar en Google Maps"** apuntando a `https://maps.app.goo.gl/kBrLLFJriD5r1Ewp8` para activación directa de la app móvil y navegador.
+  * Botón dual de **"Agendar Cita Presencial por WhatsApp"**.
+  * Sincronización y despliegue automático en Vercel.
