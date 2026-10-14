@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 import {
   Flame,
   Zap,
@@ -20,7 +22,9 @@ import {
   UserCheck,
   ChevronRight,
   Save,
-  Filter
+  Filter,
+  Download,
+  FileText
 } from 'lucide-react';
 
 interface Lead {
@@ -199,6 +203,181 @@ export default function AdminPage() {
   const contactedLeads = leads.filter((l) => l.status === 'Contactado' || l.status === 'En Negociación').length;
   const closedWon = leads.filter((l) => l.status === 'Cerrado Ganado').length;
 
+  // Exportar reporte de prospectos a PDF
+  const exportToPDF = () => {
+    if (filteredLeads.length === 0) {
+      alert('No hay prospectos para exportar con los filtros actuales.');
+      return;
+    }
+
+    try {
+      const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+      const today = new Date();
+      const dateStr = today.toLocaleDateString('es-EC', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      const timeStr = today.toLocaleTimeString('es-EC', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+
+      // Franja superior decorativa (Naranja Nómadas)
+      doc.setFillColor(226, 88, 34); // #E25822
+      doc.rect(0, 0, 297, 6, 'F');
+
+      // Título Institucional
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(15);
+      doc.setTextColor(23, 23, 28); // #17171C
+      doc.text('NÓMADAS AGENCIA DE DISEÑO Y MARKETING DIGITAL', 14, 16);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(90, 90, 100);
+      doc.text(
+        'Estrategias • Creatividad • Resultados | Av. Alberto Zambrano esquina, Puyo, Pastaza | WhatsApp: 0962577613',
+        14,
+        22
+      );
+
+      // Subtítulo del reporte
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(226, 88, 34);
+      doc.text('CONTROL Y GESTIÓN COMERCIAL: REPORTE DE PROSPECTOS CALIFICADOS', 14, 29);
+
+      // Resumen y metadatos a la derecha
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(70, 70, 80);
+      doc.text(`Fecha de emisión: ${dateStr} - ${timeStr}`, 212, 16);
+      doc.text(`Registros en reporte: ${filteredLeads.length} de ${leads.length}`, 212, 21);
+      doc.text(
+        `Calientes: ${hotLeads}  |  Tibios: ${warmLeads}  |  Fríos: ${coldLeads}`,
+        212,
+        26
+      );
+
+      // Línea divisoria
+      doc.setDrawColor(220, 220, 230);
+      doc.setLineWidth(0.5);
+      doc.line(14, 32, 283, 32);
+
+      // Filas para la tabla
+      const tableRows = filteredLeads.map((lead, index) => {
+        // Nombre & Negocio
+        const nombreYNegocio = `${lead.name}\n${lead.business_name || 'Sin especificar'}`;
+
+        // Correo
+        const correo = lead.email ? lead.email.trim() : 'No registrado';
+
+        // Teléfono
+        const telefono = lead.whatsapp || 'No registrado';
+
+        // Temperatura
+        const tempText =
+          lead.temperature === 'HOT'
+            ? 'CALIENTE'
+            : lead.temperature === 'WARM'
+            ? 'TIBIO'
+            : 'FRÍO';
+        const temperatura = `${tempText} (${lead.score ?? 0}/100)`;
+
+        // Resumen de estado
+        const servList =
+          lead.services && lead.services.length > 0
+            ? lead.services.join(', ')
+            : 'Servicios generales';
+        const urgenciaText =
+          lead.urgency === 'esta_semana'
+            ? 'Urgente (Esta semana)'
+            : lead.urgency === 'este_mes'
+            ? 'Moderado (2-4 sem)'
+            : 'Cotización / Consulta';
+        const notasText = lead.notes ? `\nNotas: ${lead.notes}` : '';
+        const resumenEstado = `Estado: [${lead.status || 'Nuevo'}]\nUrgencia: ${urgenciaText}\nInterés: ${servList}${notasText}`;
+
+        return [
+          (index + 1).toString(),
+          nombreYNegocio,
+          correo,
+          telefono,
+          temperatura,
+          resumenEstado
+        ];
+      });
+
+      autoTable(doc, {
+        startY: 35,
+        head: [['#', 'Nombre', 'Correo', 'Teléfono', 'Temperatura', 'Resumen de Estado']],
+        body: tableRows,
+        theme: 'striped',
+        headStyles: {
+          fillColor: [226, 88, 34],
+          textColor: [255, 255, 255],
+          fontStyle: 'bold',
+          fontSize: 9,
+          halign: 'left',
+          cellPadding: 3
+        },
+        bodyStyles: {
+          fontSize: 8.5,
+          textColor: [30, 41, 59],
+          cellPadding: 3,
+          valign: 'top'
+        },
+        alternateRowStyles: {
+          fillColor: [248, 249, 250]
+        },
+        columnStyles: {
+          0: { cellWidth: 10, halign: 'center' },
+          1: { cellWidth: 50, fontStyle: 'bold' },
+          2: { cellWidth: 48 },
+          3: { cellWidth: 32, halign: 'center' },
+          4: { cellWidth: 38, halign: 'center', fontStyle: 'bold' },
+          5: { cellWidth: 'auto' }
+        },
+        didParseCell: (data) => {
+          if (data.section === 'body' && data.column.index === 4) {
+            const val = String(data.cell.raw || '');
+            if (val.includes('CALIENTE')) {
+              data.cell.styles.textColor = [226, 88, 34];
+            } else if (val.includes('TIBIO')) {
+              data.cell.styles.textColor = [190, 110, 0];
+            } else if (val.includes('FRÍO')) {
+              data.cell.styles.textColor = [37, 99, 235];
+            }
+          }
+        },
+        didDrawPage: (data) => {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8);
+          doc.setTextColor(140, 140, 150);
+          doc.text(
+            'NÓMADAS AGENCIA — Documento Confidencial para Control y Gestión Comercial',
+            14,
+            205
+          );
+          doc.text(`Página ${data.pageNumber}`, 272, 205);
+        }
+      });
+
+      const fileName = `Reporte_Prospectos_Nomadas_${today.toISOString().slice(0, 10)}.pdf`;
+      doc.save(fileName);
+      showToast('📄 Reporte PDF descargado con éxito');
+    } catch (err: any) {
+      console.error('Error generando PDF:', err);
+      alert('Error al generar el archivo PDF: ' + err.message);
+    }
+  };
+
   // ----------------- VISTA DE INICIO DE SESIÓN -----------------
   if (!isAuthenticated) {
     return (
@@ -303,11 +482,21 @@ export default function AdminPage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <button
+              onClick={exportToPDF}
+              disabled={leads.length === 0}
+              className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[#E25822] hover:bg-[#C94614] text-white rounded-xl text-xs font-bold transition-all shadow-md orange-glow disabled:opacity-50"
+              title="Descargar reporte comercial en formato PDF"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Descargar PDF</span>
+            </button>
+
             <button
               onClick={() => fetchLeads(password)}
               disabled={isLoading}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 rounded-xl text-xs font-semibold transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 rounded-xl text-xs font-semibold transition-colors"
               title="Refrescar prospectos"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
@@ -316,7 +505,7 @@ export default function AdminPage() {
 
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-xl text-xs font-bold transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 bg-red-100 hover:bg-red-200 text-red-700 rounded-xl text-xs font-bold transition-colors"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Cerrar Sesión</span>
@@ -337,7 +526,16 @@ export default function AdminPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={exportToPDF}
+              disabled={leads.length === 0}
+              className="px-4 py-2.5 bg-[#E25822] hover:bg-[#C94614] text-white text-xs font-bold rounded-xl shadow-md orange-glow transition-all inline-flex items-center gap-2 disabled:opacity-50"
+            >
+              <Download className="w-4 h-4" />
+              <span>Descargar Reporte PDF</span>
+            </button>
+
             <a
               href="/"
               target="_blank"
@@ -444,6 +642,17 @@ export default function AdminPage() {
                 <option value="Perdido">Perdido</option>
               </select>
             </div>
+
+            {/* Botón Descargar PDF Filtrado */}
+            <button
+              onClick={exportToPDF}
+              disabled={filteredLeads.length === 0}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-xl text-xs font-semibold border border-zinc-700 transition-colors disabled:opacity-50"
+              title="Descargar PDF con los prospectos filtrados actualmente"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#FF7038]" />
+              <span>Exportar PDF ({filteredLeads.length})</span>
+            </button>
           </div>
         </div>
 
