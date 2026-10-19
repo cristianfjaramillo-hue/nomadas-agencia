@@ -69,6 +69,15 @@ export default function AdminPage() {
     }
   }, []);
 
+  // Auto-refrescar prospectos cada 20 segundos mientras el administrador esté activo
+  useEffect(() => {
+    if (!isAuthenticated || !password) return;
+    const interval = setInterval(() => {
+      fetchLeads(password);
+    }, 20000);
+    return () => clearInterval(interval);
+  }, [isAuthenticated, password]);
+
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3000);

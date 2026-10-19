@@ -17,46 +17,67 @@ export async function POST(request: Request) {
     // Calcular el Lead Score y la Temperatura
     const scoring = calculateLeadScore(body);
 
-    const newLead = {
+    const servicesList = Array.isArray(body.services) ? body.services : [];
+    const servicesNote = servicesList.length > 0 ? `Servicios solicitados: ${servicesList.join(', ')}` : '';
+
+    const newLead: any = {
       name: body.name.trim(),
       business_name: body.business_name.trim(),
       whatsapp: body.whatsapp.replace(/\D/g, ''),
       email: body.email ? body.email.trim() : null,
-      services: body.services || [],
       urgency: body.urgency,
       budget_range: body.budget_range,
       business_type: body.business_type,
       score: scoring.score,
       temperature: scoring.temperature,
       status: 'Nuevo',
-      notes: '',
+      notes: servicesNote,
       assigned_to: 'Agente de Ventas'
     };
 
     // Si Supabase está configurado, guardar en la base de datos
     const client = getServiceSupabase() || supabase;
     if (client) {
-      const { data, error } = await client
+      // 1. Intentamos guardar con la columna 'services'
+      let { data, error } = await client
         .from('leads')
-        .insert([newLead])
+        .insert([{ ...newLead, services: servicesList }])
         .select()
         .single();
 
+      // 2. Si falla porque no existe la columna 'services' en el esquema de Supabase, reintentamos sin ella
+      if (error && (error.code === 'PGRST204' || String(error.message).includes('services'))) {
+        console.warn('Columna services no existe en tabla leads de Supabase. Reintentando inserción sin campo services...');
+        const retry = await client
+          .from('leads')
+          .insert([newLead])
+          .select()
+          .single();
+        data = retry.data;
+        error = retry.error;
+      }
+
       if (error) {
-        console.error('Error insertando lead en Supabase:', error);
+        console.error('Error definitivo insertando lead en Supabase:', error);
         return NextResponse.json(
-          { success: true, lead: newLead, warning: 'Guardado localmente, error en DB: ' + error.message },
-          { status: 200 }
+          { error: 'Error al registrar en base de datos: ' + error.message },
+          { status: 500 }
         );
       }
 
-      return NextResponse.json({ success: true, lead: data }, { status: 201 });
+      // Asegurar que el objeto lead devuelto contenga los servicios seleccionados
+      const resultLead = {
+        ...data,
+        services: Array.isArray(data?.services) && data.services.length > 0 ? data.services : servicesList
+      };
+
+      return NextResponse.json({ success: true, lead: resultLead }, { status: 201 });
     }
 
     // Si aún no han colocado las credenciales de Supabase
     return NextResponse.json({
       success: true,
-      lead: newLead,
+      lead: { ...newLead, services: servicesList },
       mock: true,
       message: 'Lead calificado con éxito. (Configura las credenciales de Supabase para persistencia en nube).'
     });
@@ -95,7 +116,22 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    return NextResponse.json({ leads: data || [] });
+    // Normalizar leads para asegurar que 'services' siempre esté presente
+    const normalizedLeads = (data || []).map((lead: any) => {
+      let services = Array.isArray(lead.services) ? lead.services : [];
+      if (services.length === 0 && lead.notes && lead.notes.includes('Servicios')) {
+        const match = lead.notes.match(/Servicios(?:\s+solicitados)?:\s*([^\n]+)/);
+        if (match) {
+          services = match[1].split(',').map((s: string) => s.trim());
+        }
+      }
+      return {
+        ...lead,
+        services
+      };
+    });
+
+    return NextResponse.json({ leads: normalizedLeads });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
